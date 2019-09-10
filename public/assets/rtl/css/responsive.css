@@ -359,28 +359,25 @@
     	direction: ltr !important;
     }
 
-    .generalSearch::-webkit-input-placeholder{
-    	font-size: 8.5px;
+    .fa-search {
+	    margin-top: 27px !important;
+	    float: left !important;
+	    margin-left: -16px !important;
+	}
+	
+	.generalSearch::-webkit-input-placeholder{
+    	font-size: 9.8px;
     }
 
     .generalSearch{
-    	width: 91% !important;
+    	width: 100% !important;
     	float: right !important;
-    	margin-left: 6px !important;
-    	margin-top: -28px !important;
-    	margin-right: 22px;
     }
 
     .custom-show-filters{
     	margin-top: 5px !important;
     }
 
-
-    .fa-search{
-        margin-top: -9px !important;
-        float: left !important;
-    	margin-left: 1px !important;
-    }
 
     .carListBE{
     	margin-left: -29px !important;
@@ -455,9 +452,9 @@
 	}
 
 	.button-mobile {
-	    background: #ffffff !important;
-	    color: #01355d !important;
-	    border: 1px solid #01355d !important;
+	    background: #01355d !important;
+    	color: #fff !important;
+    	border: 1px solid #01355d !important;
 	}
 
 	.head-txt-resp{
@@ -651,28 +648,25 @@
     	direction: ltr !important;
     }
 
-    .generalSearch::-webkit-input-placeholder{
-    	font-size: 7.5px;
+    .fa-search {
+	    margin-top: 27px !important;
+	    float: left !important;
+	    margin-left: -16px !important;
+	}
+
+	.generalSearch::-webkit-input-placeholder{
+    	font-size: 8.2px;
     }
 
     .generalSearch{
-    	width: 91% !important;
+    	width: 100% !important;
     	float: right !important;
-    	margin-left: 6px !important;
-    	margin-top: -28px !important;
-    	margin-right: 22px;
     }
 
     .custom-show-filters{
     	margin-top: 5px !important;
     }
 
-
-    .fa-search{
-        margin-top: -11px !important;
-    	float: left !important;
-    	margin-left: -10px !important;
-    }
 
     .carListBE{
     	margin-left: -29px !important;
@@ -747,9 +741,9 @@
 	}
 
 	.button-mobile {
-	    background: #ffffff !important;
-	    color: #01355d !important;
-	    border: 1px solid #01355d !important;
+	    background: #01355d !important;
+    	color: #fff !important;
+    	border: 1px solid #01355d !important;
 	}
 
 	.head-txt-resp{
@@ -791,9 +785,13 @@
 		margin-bottom: 0px !important;
 	}
 	.fa-search {
-	    margin-top: -30px !important;
+	    margin-top: 27px !important;
 	    float: left !important;
-	    margin-left: -2px !important;
+	    margin-left: -16px !important;
+	}
+
+	.cars-many, .cars-branch{
+		width: 100% !important;
 	}
 
 	.pricetable{
@@ -956,18 +954,16 @@
 
     .navbar{
     	direction: ltr !important;
+    	margin-left: 10px !important;
     }
 
     .generalSearch::-webkit-input-placeholder{
-    	font-size: 6.2px;
+    	font-size: 7.2px;
     }
 
     .generalSearch{
-    	width: 91% !important;
+    	width: 100% !important;
     	float: right !important;
-    	margin-left: 6px !important;
-    	margin-top: -28px !important;
-    	margin-right: 22px;
     }
 
     .custom-show-filters{
@@ -1047,9 +1043,9 @@
 	}
 
 	.button-mobile {
-	    background: #ffffff !important;
-	    color: #01355d !important;
-	    border: 1px solid #01355d !important;
+	    background: #01355d !important;
+    	color: #fff !important;
+    	border: 1px solid #01355d !important;
 	}
 
 	.head-txt-resp{
@@ -1081,4 +1077,42 @@
 	.carListItemResponse{
 		margin: 0px 2px;
 	}
+
+	.whatsapp-logo-f{
+		width: 19% !important;
+	    float: left !important;
+	    margin-bottom: -15px !important;
+	    margin-left: -23px !important;
+	}
+
+
+	.button-mobile-fixed{
+		display: block !important;
+	}
+
+	.pagin{
+		width: 112% !important;
+	}
+
+}
+
+#launcher{
+	bottom: 8px !important;
+}
+
+.button-mobile-container {
+    width: 98% !important;
+}
+
+.searchViewBtn{
+	margin-bottom: 5px !important;
+}
+
+.whatsapp-logo-f{
+	width: 5%;float: left;margin-bottom: -16px;
+}
+
+.whatsapp-div-parent
+{
+	position: fixed;bottom: 30px;left: 30px;z-index: 600;
 }

@@ -6,14 +6,14 @@
             </div>
             <div class="car-price d-flex">
                 <div class="price-car mr-auto" style="margin-top: 10px;">
-                    <span id="هيونداي" class="value calculateCarPriceBasedOnDuration">
+                    <span id="هيونداي" class="value calculateCarPriceBasedOnDuration" style="float: right;">
                         {{ calculatePrice(car["car_"+paramName+"_price"]) }}
                     </span>
                     <input type="hidden" class="car_daily_price" value="46">
-                    <span v-if="price_period == 'day'" class="duration"> ريال يومياً</span>
-                    <span v-else-if="price_period == 'week'" class="duration"> ريال أسبوعياً</span>
-                    <span v-else-if="price_period == 'month'" class="duration"> ريال شهرياً</span>                
-                    <span v-else-if="price_period == 'year'" class="duration"> ريال سنوياً</span>
+                    <span v-if="price_period == 'day'" class="duration mr-5"> ريال يومياً</span>
+                    <span v-else-if="price_period == 'week'" class="duration mr-5"> ريال أسبوعياً</span>
+                    <span v-else-if="price_period == 'month'" class="duration mr-5"> ريال شهرياً</span>                
+                    <span v-else-if="price_period == 'year'" class="duration mr-5"> ريال سنوياً</span>
                 </div>
                 <div class="carname d-flex">
                     <div class="ml-auto">

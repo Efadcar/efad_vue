@@ -1,8 +1,11 @@
 <template>
     <div class="row">
+        <div id="show_mobile_search_filters" class="button-mobile-container button-mobile-fixed" style="width: 98%;display: none;">
+            <div class="button-mobile searchDetails"><i class="fa fa-filter"></i> بحث متقدم</div>
+        </div>
         <div class="col-12 search-option mt-2 scrollbar" id="style-1">
             <div class="button-mobile-container button-mobile-close">
-                <div class="button-mobile">مشاهدة</div>
+                <div class="button-mobile searchViewBtn">مشاهدة</div>
             </div>
             <h4><i class="fa fa-filter"></i> بحث متقدم </h4>
             <div class="col-md-12 col-sm-12 pt-2">
@@ -32,8 +35,8 @@
                         <label for="week1" class="week">أسبوع</label>
                         <input type="radio" name="year1" data-value="30" v-model="price_period" data-period="month" value="month" id="month1" class=" subscriptionValueDuration" >
                         <label for="month1" class="month"> شهر</label>
-                        <input type="radio" name="year1" data-value="365" v-model="price_period" data-period="year" value="year"  id="year1" class=" subscriptionValueDuration" >
-                        <label for="year1" class="year">سنة</label>
+                        <!-- <input type="radio" name="year1" data-value="365" v-model="price_period" data-period="year" value="year"  id="year1" class=" subscriptionValueDuration" >
+                        <label for="year1" class="year">سنة</label> -->
                     </p>
                 </div>
             </div>
@@ -41,9 +44,9 @@
                 <span class="labelh py-2" >عرض السعر</span>
                 <div col-lg-12>
                     من
-                    &nbsp;<input type="text" name="week1" value="0" id="priceTo" class="item8000 financialValueWeekly" disabled>&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;<input style="background-color: #f0f0f0;color: #01355d;" type="text" name="week1" value="0" id="priceTo" class="item8000 financialValueWeekly" disabled>&nbsp;&nbsp;&nbsp;&nbsp;
                     إلى
-                    &nbsp;<input type="text" name="day1"  value="100000" id="priceFrom" class="item2000 financialValueDaily" disabled >
+                    &nbsp;<input style="background-color: #f0f0f0;color: #01355d;" type="text" name="day1"  value="100000" id="priceFrom" class="item2000 financialValueDaily" disabled >
                 </div>
                 <div id="nouislider-slider-cash-range" class="mt-2"></div>
             </div>
@@ -116,16 +119,6 @@
                             </span> 
                         </label>
                     </div>
-                    <!-- <div v-for="color in car_colors">
-                        <div v-if="color.cco_uid = 15">
-                            <input type="checkbox" :id="color_color.cco_uid" class="updateSearchContent carColor" :value="color.cco_uid" >
-                            <label :for="color_color.cco_uid"> <span style="background-image: url('assets/rtl/images/cw.jpg')"> <i class="fa fa-check <?php if($color->cco_meta_desc == "#ffffff"){echo "blackCheck";} ?>"></i> </span> </label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="color_<?= $color->cco_uid ?>" class="updateSearchContent carColor" value="<?= $color->cco_uid ?>" >
-                            <label for="color_<?= $color->cco_uid ?>"> <span style="background-color: <?= $color->cco_meta_desc ?>"> <i class="fa fa-check <?php if($color->cco_meta_desc == "#ffffff"){echo "blackCheck";} ?>"></i> </span> </label>
-                        </div>
-                    </div> -->
                 </div>
             </div>
             <div class="col-md-12 col-sm-12 pt-2">
@@ -214,7 +207,8 @@
                 man_year_range: { 
                     'min': 2016, 
                     'max': 2020, 
-                }
+                },
+                isHidden: false,
             };
         },
         computed: {},
@@ -328,7 +322,19 @@
                     $('#priceTo').val(Math.trunc( value[0] ));
                 });
                 //////////////////////////////////////////////////////////////////////////////////////
+
+
+                // $('body').on("click", '#show_mobile_search_filters', function(){
+                //     console.log("clicked");
+                //     $('.search-option').toggleClass('show');
+                // });
+
+                // $('.searchViewBtn').click(function(){
+                //     $('.search-option').toggleClass('hide');
+                // });
+
             });
+
         },
         watch: {
             book_period: function(newValue, oldValue){
@@ -457,7 +463,10 @@
             },
             resetFilters: function(){
                 this.$bus.$emit('reset_filters');
-            }
+            },
+            showFiltersBlock: function(){
+                this.isHidden = !this.isHidden;
+            },
         },
    }
 </script>
