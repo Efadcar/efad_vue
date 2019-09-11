@@ -1,7 +1,7 @@
 <template>
     <div class="row">
-        <div id="show_mobile_search_filters" class="button-mobile-container button-mobile-fixed" style="width: 98%;display: none;">
-            <div class="button-mobile searchDetails"><i class="fa fa-filter"></i> بحث متقدم</div>
+        <div class="button-mobile-container button-mobile-fixed">
+            <div class="button-mobile"><i class="fa fa-filter"></i> بحث متقدم</div>
         </div>
         <div class="col-12 search-option mt-2 scrollbar" id="style-1">
             <div class="button-mobile-container button-mobile-close">
@@ -332,6 +332,10 @@
                 // $('.searchViewBtn').click(function(){
                 //     $('.search-option').toggleClass('hide');
                 // });
+                
+                $('.button-mobile-container').click(function () {
+                    $('.search-option').toggleClass('show');
+                });
 
             });
 

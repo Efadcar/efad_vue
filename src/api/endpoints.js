@@ -21,6 +21,11 @@ const END_POINTS = {
 		get_results: apiUrl("explore"),
 		cars_colors: apiUrl("cars_colors"),
 	},
+	countries: apiUrl("countries"),
+	auth: {
+		register: apiUrl("register"),
+		login: apiUrl("login"),
+	}
 };
 
 export default END_POINTS;
