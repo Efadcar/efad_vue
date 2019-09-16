@@ -24,6 +24,39 @@ const routerOptions = [
 		},
 	},
 	{
+		path: '/booking/new',
+		component: 'booking/new',
+		name: 'newBooking',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'newBooking',
+			activeSubNav: '',
+			requiresAuth: false,
+		},
+	},
+	{
+		path: '/booking/pay',
+		component: 'booking/pay',
+		name: 'payBooking',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'payBooking',
+			activeSubNav: '',
+			requiresAuth: false,
+		},
+	},
+	{
+		path: '/booking/subscribe',
+		component: 'booking/subscribe',
+		name: 'subscribeBooking',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'subscribeBooking',
+			activeSubNav: '',
+			requiresAuth: false,
+		},
+	},
+	{
 		path: '*',
 		component: 'error/404',
 		name: '404',

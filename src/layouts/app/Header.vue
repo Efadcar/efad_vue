@@ -37,7 +37,7 @@
                         <span><span>مميزات العضوية</span></span>
                     </a>
                 </div>
-                <div class="navbar-buttons  mbr-section-btn  ml-auto nonAuthMenu"> 
+                <div class="navbar-buttons  mbr-section-btn  ml-auto nonAuthMenu" style="display: none;"> 
                     <a id="top-login-button" href="#login_form_ajax" class="mr-2 login-link">
                     تسجيل دخول
                     </a>
