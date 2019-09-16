@@ -129,7 +129,9 @@
 
             this.fetchResults();
         },
-        mounted() {},
+        mounted() {
+            document.title = 'إفاد | اكتشف';
+        },
         watch: {},
         methods: {
             resetFilters() {

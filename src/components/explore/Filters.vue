@@ -5,7 +5,7 @@
         </div>
         <div class="col-12 search-option mt-2 scrollbar" id="style-1">
             <div class="button-mobile-container button-mobile-close">
-                <div class="button-mobile searchViewBtn">مشاهدة</div>
+                <div class="button-mobile searchViewBtn">عرض</div>
             </div>
             <h4><i class="fa fa-filter"></i> بحث متقدم </h4>
             <div class="col-md-12 col-sm-12 pt-2">

@@ -37,12 +37,13 @@
     </script>
     <!-- end js -->
 
-    <title>Efad</title>
+    <title></title>
   </head>
   <body class="top">
-    <!--back-to-top start-->
-        <div class="whatsapp-div-parent"><a target="_blank" href="http://wa.me/966555208078"><img class="whatsapp-logo-f" src="/assets/rtl/images/whattsapp-logo-f.png" alt="Efad" /></a></div>
+        <!--back-to-top start-->
+        <div class="whatsapp-div-parent"><a target="_blank" href="http://wa.me/966555208078"><img class="whatsapp-logo-f" src="<%= BASE_URL %>assets/rtl/images/Qrcode.png" alt="Efad" /></a></div>
         <!--back-to-top end--> 
+        <!-- /assets/rtl/images/whattsapp-logo-f.png -->
     <div id="app"></div>
     
     <!-- js  -->
@@ -58,5 +59,21 @@
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/8.2.1/nouislider.min.js"></script>
     <script  src="<%= BASE_URL %>assets/rtl/js/efad-scripts.js"></script>
     <!-- end js -->
+    <script type="text/javascript">
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "positionClass": "toast-top-right",
+            "onclick": null,
+            "showDuration": "1000",
+            "hideDuration": "1000",
+            "timeOut": "20000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+    </script>
   </body>
 </html>

@@ -34,13 +34,13 @@
                 <div class="col-lg-12" v-if="car.car_in_stock == 0">
                     <span class="dot11" style="background-color: rgb(132, 132, 132)"></span>
                     <div class="btn-reserve btn-reserve1"> 
-                        <a href="/" class="btn btn-default">احجز الآن</a>
+                        <a href="#" class="btn btn-default">احجز الآن</a>
                     </div>
                 </div>
                 <div class="col-lg-12" v-if="car.car_in_stock == 1 && car.car_status == 0">
                     <span class="dot11" style="background-color: rgb(230,1,1)"></span>
                     <div class="btn-reserve btn-reserve1"> 
-                        <a href="/" class="btn btn-default">احجز الآن</a>
+                        <a href="#" class="btn btn-default">احجز الآن</a>
                     </div>
                 </div>
             </div>

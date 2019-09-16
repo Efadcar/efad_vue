@@ -25,7 +25,10 @@ const END_POINTS = {
 	auth: {
 		register: apiUrl("register"),
 		login: apiUrl("login"),
-	}
+	},
+	pages: {
+		about: apiUrl("/page?link=about-us"),
+	},
 };
 
 export default END_POINTS;

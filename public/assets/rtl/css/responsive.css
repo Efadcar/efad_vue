@@ -6,6 +6,14 @@
 	margin-bottom: 49px !important;
 }
 
+#toast-container{
+	left: 30px !important;
+}
+
+#mainMenuResp{
+	display: none !important;
+}
+
 .custom_title_text{
 	color: #01355d !important;
 }
@@ -944,7 +952,13 @@
 	}
 
 	.show>.dropdown-menu {
-    	left: 49% !important;
+        left: 71% !important;
+    	margin-top: 48px !important;
+    	width: 55% !important;
+    }
+
+    .dropdown-item{
+    	margin: 0px !important;
     }
 
     .custom-fav-img{
@@ -1046,6 +1060,15 @@
 	    background: #01355d !important;
     	color: #fff !important;
     	border: 1px solid #01355d !important;
+    	width: 47% !important;
+    	margin-left: 9px !important;
+	}
+	.fa.fa-filter{
+		margin-left: 11px !important;
+	}
+
+	#mainMenuResp{
+		display: contents !important;
 	}
 
 	.head-txt-resp{
@@ -1094,6 +1117,10 @@
 		width: 112% !important;
 	}
 
+	.whatsapp-div-parent{
+		left: 43px !important;
+	}
+
 }
 
 #launcher{
@@ -1116,3 +1143,4 @@
 {
 	position: fixed;bottom: 30px;left: 30px;z-index: 600;
 }
+

@@ -85,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type='submit' name='Submit' class="btn btn-default  btn-block my-4 registerBtn" value='تسجيل حساب'/>
+                    <input type='submit' name='Submit' class="btn btn-default  btn-block my-4 registerBtn" value='سجل حساب جديد'/>
                     <div class="bottom"> <a class="switchPanelButton" panelclass="panel" panelid="login" href="#">لديك حساب خاص بك؟ سجل دخول الآن هنا</a> </div>
                 </div>
                 </form>
@@ -119,7 +119,9 @@
         mounted() {
             const component = this;
             $(document).ready(function(){
+        
                 $('#top-login-button').fancybox();
+
                 // $('#countries').msDropdown();
                 $('#countries2').msDropdown();
                 /* login */
@@ -176,7 +178,6 @@
                         data:{member_fname: member_fname, member_lname:member_lname, country_uid:country_uid, city_uid:city_uid, member_email:member_email, member_mobile:member_mobile, member_password:member_password},
                         success:function(data){
                             
-                            toastr.success(data.message, "نجاح");
 
                             var esc = $.Event("keydown", { keyCode: 27 });
                             $("body").trigger(esc);
@@ -201,7 +202,6 @@
                         },
                         success:function(data){
                             
-                            toastr.success(data.message, "نجاح");
                             var esc = $.Event("keydown", { keyCode: 27 });
                             $("body").trigger(esc);
 
