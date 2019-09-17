@@ -163,7 +163,7 @@
                 });
 
 
-                $('.registerBtn').click(function(){
+                $('body').on('click', '.registerBtn', function(){
                     let member_fname = $('#member_fname').val();
                     let member_lname = $('#member_lname').val();
                     let country_uid = $( ".country_uid option:selected" ).val();
@@ -177,8 +177,9 @@
                         url: component.$API.endpoints.auth.register,
                         data:{member_fname: member_fname, member_lname:member_lname, country_uid:country_uid, city_uid:city_uid, member_email:member_email, member_mobile:member_mobile, member_password:member_password},
                         success:function(data){
-                            
-
+                            let authUser = data['result'];
+                            localStorage.setItem('auth', JSON.stringify(authUser));
+                            component.successLogin();
                             var esc = $.Event("keydown", { keyCode: 27 });
                             $("body").trigger(esc);
 
@@ -190,7 +191,7 @@
                     });
                 });
 
-                $('.loginBtn').click(function(){
+                $('body').on('click', '.loginBtn', function(){
                     let username = $('.username').val();
                     let password = $('.password').val();
                     $.ajax({
@@ -201,7 +202,14 @@
                             password:password
                         },
                         success:function(data){
+
+                            let authUser = data['result'];
+                            localStorage.setItem('auth', JSON.stringify(authUser));
+                            component.successLogin();
                             
+                            console.log(localStorage);
+                            
+
                             var esc = $.Event("keydown", { keyCode: 27 });
                             $("body").trigger(esc);
 
@@ -280,7 +288,11 @@
             });
         },
         watch: {},
-        methods: {},
+        methods: {
+            successLogin(){
+                this.$bus.$emit('success-login');
+            }
+        },
     }
 </script>
 

@@ -10,10 +10,10 @@
                         {{ calculatePrice(car["car_"+paramName+"_price"]) }}
                     </span>
                     <input type="hidden" class="car_daily_price" value="46">
-                    <span v-if="price_period == 'day'" class="duration mr-5"> ريال يومياً</span>
-                    <span v-else-if="price_period == 'week'" class="duration mr-5"> ريال أسبوعياً</span>
-                    <span v-else-if="price_period == 'month'" class="duration mr-5"> ريال شهرياً</span>                
-                    <span v-else-if="price_period == 'year'" class="duration mr-5"> ريال سنوياً</span>
+                    <span v-if="price_period == 'day'" class="duration" style="margin-right: 4px;"> ريال يومياً</span>
+                    <span v-else-if="price_period == 'week'" class="duration" style="margin-right: 4px;"> ريال أسبوعياً</span>
+                    <span v-else-if="price_period == 'month'" class="duration" style="margin-right: 4px;"> ريال شهرياً</span>                
+                    <span v-else-if="price_period == 'year'" class="duration" style="margin-right: 4px;"> ريال سنوياً</span>
                 </div>
                 <div class="carname d-flex">
                     <div class="ml-auto">

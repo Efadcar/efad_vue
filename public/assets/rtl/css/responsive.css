@@ -2,6 +2,13 @@
 	top: 82% !important; font-size: 13px;max-width: 280px;border: 1px solid #33b0f870;border-radius: 0.9rem;box-shadow: 1px 1px 2px 2px #00000017;
 }
 
+/*.whatsapp-png-btm{
+    margin-left: 44px !important;
+    bottom: 32px !important;
+    position: fixed !important;
+}
+*/
+
 .custom-footer-mar{
 	margin-bottom: 49px !important;
 }
@@ -968,7 +975,7 @@
 
     .navbar{
     	direction: ltr !important;
-    	margin-left: 10px !important;
+    	height: 79px !important;
     }
 
     .generalSearch::-webkit-input-placeholder{
@@ -1061,10 +1068,10 @@
     	color: #fff !important;
     	border: 1px solid #01355d !important;
     	width: 47% !important;
-    	margin-left: 9px !important;
+    	margin-left: -2px !important;
 	}
 	.fa.fa-filter{
-		margin-left: 11px !important;
+		margin-left: 7px !important;
 	}
 
 	#mainMenuResp{
@@ -1121,6 +1128,36 @@
 		left: 43px !important;
 	}
 
+
+	.whatsapp-div-new{
+	    bottom: 21px !important;
+	    width: 15% !important;
+	    left: 21px !important;
+	    position: fixed !important;
+	    z-index: 1000 !important;
+	}
+
+	.fa-chevron-left{
+		margin-left: -12px !important;
+	}
+
+	.fa-chevron-right{
+		margin-right: -20px !important;
+	}
+
+	.mob-gp{
+		width: 130px !important;
+		margin-left: 10px !important;
+	}
+
+	.mob-as{
+		width: 130px !important;
+	}
+
+	.logo{
+		width: 50% !important;
+		margin-left: 10px !important;
+	}
 }
 
 #launcher{
@@ -1128,7 +1165,8 @@
 }
 
 .button-mobile-container {
-    width: 98% !important;
+    width: 100% !important;
+    z-index: 1000000000;
 }
 
 .searchViewBtn{
@@ -1144,3 +1182,10 @@
 	position: fixed;bottom: 30px;left: 30px;z-index: 600;
 }
 
+.whatsapp-div-new{
+    bottom: 21px;
+    width: 3%;
+    left: 21px;
+    position: fixed;
+    z-index: 1000;
+}

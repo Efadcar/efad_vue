@@ -41,8 +41,8 @@
                     </div>
                     <div class="col-lg-2 col-sm-7 col-xs-12 text-center">
                         <h3 class="mb-1">قريباً</h3>
-                        <a href="<?= site_url() ?>"><img src="/assets/rtl/images/google-play%20(2).png" class="mb-2" style="width: 140px;height: 42px;"></a>
-                        <a href="<?= site_url() ?>"><img src="/assets/rtl/images/app-store%20(2).png" class="mb-2" style="width: 140px;height: 42px;"></a>
+                        <a href="<?= site_url() ?>"><img src="/assets/rtl/images/google-play%20(2).png" class="mob-gp mb-2" style="width: 140px;height: 42px;"></a>
+                        <a href="<?= site_url() ?>"><img src="/assets/rtl/images/app-store%20(2).png" class="mob-as mb-2" style="width: 140px;height: 42px;"></a>
                     </div>
                     <div class="col-lg-3 col-sm-5 col-xs-12 text-right custom-align logo-footer">
                         <a href="<?= site_url() ?>"><img src="/assets/rtl/images/last-logo.png" alt="Efad" class="footerlogo"/></a>

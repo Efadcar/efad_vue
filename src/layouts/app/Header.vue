@@ -6,17 +6,17 @@
                 <img class="logo" src="/assets/rtl/images/latest-logo.png" alt="Efad Logo" />
             </router-link>
             <div class="collapse navbar-collapse" id="mainMenu">
-                <div class="navbar-buttons  mbr-section-btn ml-auto loginAuthMenu"> 
+                <div class="navbar-buttons  mbr-section-btn ml-auto loginAuthMenu" v-show="isAuthenticated()"> 
                  
                     <a class="btn btn-login" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 5px;">
-                         Mohamed Rezk <i class="fa fa-user-circle"></i>
+                        {{auth.member_full_name}}&nbsp;<i class="fa fa-user-circle"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <span class="dropdown-menu-arrow"></span>
                         <div class="row ml-0 mr-0">
                             <div class="col-md-7">
-                                <h6 class="mb-0">Mohamed Rezk</h6>
-                                <p class="mb-0" style="font-size: small;">رقم عضوية : </p>
+                                <h6 class="mb-0">{{auth.member_full_name}}</h6>
+                                <p class="mb-0" style="font-size: small;">رقم عضوية : {{auth.member_uid}}</p>
                             </div>
                             <div class="col-md-5" align="left">
                                 <img src="../../assets/rtl/images/favicon.png" class="custom-fav-img">
@@ -31,13 +31,13 @@
                             العضوية
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= site_url('members/logout') ?>">تسجيل خروج</a>
+                        <a class="dropdown-item" href="#" v-on:click='logout'>تسجيل خروج</a>
                     </div>                                      
                     <a href="<?= site_url('memberships/subscribe') ?>" class="btn" style="background-color: #eb3f31; color: #fff; ">
                         <span><span>مميزات العضوية</span></span>
                     </a>
                 </div>
-                <div class="navbar-buttons  mbr-section-btn  ml-auto nonAuthMenu" style="display: none;"> 
+                <div class="navbar-buttons  mbr-section-btn  ml-auto nonAuthMenu" v-show="!isAuthenticated()"> 
                     <a id="top-login-button" href="#login_form_ajax" class="mr-2 login-link">
                     تسجيل دخول
                     </a>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="mainMenuResp">
-                <div class="navbar-buttons  mbr-section-btn loginAuthMenu" style="margin-top: 16px;"> 
+                <div class="navbar-buttons  mbr-section-btn loginAuthMenu" style="margin-top: 16px;" v-show="isAuthenticated()"> 
                  
                     <a class="btn btn-login" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 24%;float: right;margin-right: 13px;"><i class="fa fa-user-circle"></i>
                     </a>
@@ -55,8 +55,8 @@
                         <span class="dropdown-menu-arrow"></span>
                         <div class="row ml-0 mr-0">
                             <div class="col-md-7">
-                                <h6 class="mb-0">Mohamed Rezk</h6>
-                                <p class="mb-0" style="font-size: small;">رقم عضوية : </p>
+                                <h6 class="mb-0">{{auth.member_full_name}}</h6>
+                                <p class="mb-0" style="font-size: small;">رقم عضوية : {{auth.member_uid}}</p>
                             </div>
                             <div class="col-md-5" align="left">
                                 <img src="../../assets/rtl/images/favicon.png" class="custom-fav-img">
@@ -77,7 +77,7 @@
                         <span><span>مميزات العضوية</span></span>
                     </a>
                 </div>
-                <div class="navbar-buttons  mbr-section-btn  ml-auto nonAuthMenu" style="display:none;"> 
+                <div class="navbar-buttons  mbr-section-btn  ml-auto nonAuthMenu" v-show="!isAuthenticated()"> 
                     <a id="top-login-button2" href="#login_form_ajax" class="mr-2 login-link" style="width: 50%;font-size: 9px;float: right;">
                     تسجيل دخول
                     </a>
@@ -102,17 +102,39 @@
         components: {},
         props: {},
         data() {
-            return {};
+            return {
+                auth: JSON.parse(localStorage.getItem('auth'))
+            };
         },
         computed: {},
-        created() {},
+        created() {
+            const component = this;
+
+            this.$bus.$on('success-login', function(data){
+                component.auth = JSON.parse(localStorage.getItem('auth'))
+            });   
+        },
         mounted() {
             $(document).ready(function(){
                 $('#top-login-button2').fancybox();
             });
         },
         watch: {},
-        methods: {},
+        methods: {
+            isAuthenticated: function(){
+                console.log(this.auth);
+                if (this.auth){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            },
+            logout: function(){
+                localStorage.removeItem('auth');
+                this.auth = null;
+            }
+        },
     }
 </script>
 

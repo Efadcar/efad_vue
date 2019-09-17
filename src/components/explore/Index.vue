@@ -1,7 +1,7 @@
 <template>
     <section class="p-0 border-top pt-10">
         <div class="container-fluid ">
-            <div class="row custom_explore_text">
+            <!-- <div class="row custom_explore_text">
                 <div class="col-12">
                     <p class="custom-title-head" style="">
                         <b class="custom_title_text"><span class="head-txt-resp"> تحتاج سيارة ؟</span></b>
@@ -11,7 +11,7 @@
                         أو تأمين السيارة لأنها شاملة قيمة الاشتراك 
                     </p>
                 </div>
-            </div>
+            </div> -->
             <div class="row custom-move-up-res">
                 <div class="col-sm-3">
                     <div class="row no-gutters">

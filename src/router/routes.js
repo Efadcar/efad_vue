@@ -42,7 +42,7 @@ const routerOptions = [
 			layout: 'app-layout',
 			activeNav: 'payBooking',
 			activeSubNav: '',
-			requiresAuth: false,
+			requiresAuth: true,
 		},
 	},
 	{
@@ -53,7 +53,18 @@ const routerOptions = [
 			layout: 'app-layout',
 			activeNav: 'subscribeBooking',
 			activeSubNav: '',
-			requiresAuth: false,
+			requiresAuth: true,
+		},
+	},
+	{
+		path: '/profile',
+		component: 'profile/index',
+		name: 'profile',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'profile',
+			activeSubNav: '',
+			requiresAuth: true,
 		},
 	},
 	{

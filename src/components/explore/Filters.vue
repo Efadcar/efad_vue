@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="button-mobile-container button-mobile-fixed">
-            <div class="button-mobile"><i class="fa fa-filter"></i> بحث متقدم</div>
+            <div class="button-mobile advancedSearchView"><i class="fa fa-filter"></i> بحث متقدم</div>
         </div>
         <div class="col-12 search-option mt-2 scrollbar" id="style-1">
             <div class="button-mobile-container button-mobile-close">
@@ -335,6 +335,15 @@
                 
                 $('.button-mobile-container').click(function () {
                     $('.search-option').toggleClass('show');
+                    // $('.advancedSearchView').hide();
+                });
+
+                $('.advancedSearchView').click(function (){
+                    $(this).hide();
+                });
+
+                $('.searchViewBtn').click(function(){
+                    $('.advancedSearchView').show();
                 });
 
             });
