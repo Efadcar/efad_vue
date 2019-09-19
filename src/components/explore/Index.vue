@@ -19,7 +19,7 @@
                             <div class="cars-many"> <span>1000</span> <span>سيارة</span> </div>
                         </div>
                         <div class="col-6 col-xs-6 ">
-                            <a href="<?= site_url('branches') ?>">
+                            <a href="#">
                                 <div class="cars-branch"> <span>4</span> <span>مدن</span> </div>
                             </a>
                         </div>

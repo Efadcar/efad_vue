@@ -24,7 +24,7 @@ const routerOptions = [
 		},
 	},
 	{
-		path: '/booking/new',
+		path: '/booking/new/:id',
 		component: 'booking/new',
 		name: 'newBooking',
 		meta: {
@@ -52,6 +52,17 @@ const routerOptions = [
 		meta: {
 			layout: 'app-layout',
 			activeNav: 'subscribeBooking',
+			activeSubNav: '',
+			requiresAuth: true,
+		},
+	},
+	{
+		path: '/booking/subscribe-b',
+		component: 'booking/subscribe-b',
+		name: 'subscribeBookings',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'subscribeBookings',
 			activeSubNav: '',
 			requiresAuth: true,
 		},

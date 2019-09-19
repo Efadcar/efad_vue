@@ -29,6 +29,9 @@ const END_POINTS = {
 	pages: {
 		about: apiUrl("/page?link=about-us"),
 	},
+	booking: {
+		car_info: apiUrl("/cars_info?id="),
+	},
 };
 
 export default END_POINTS;

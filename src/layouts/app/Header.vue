@@ -6,17 +6,17 @@
                 <img class="logo" src="/assets/rtl/images/latest-logo.png" alt="Efad Logo" />
             </router-link>
             <div class="collapse navbar-collapse" id="mainMenu">
-                <div class="navbar-buttons  mbr-section-btn ml-auto loginAuthMenu" v-show="isAuthenticated()"> 
+                <div class="navbar-buttons mbr-section-btn ml-auto loginAuthMenu" v-show="isAuthenticated()"> 
                  
                     <a class="btn btn-login" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 5px;">
-                        {{auth.member_full_name}}&nbsp;<i class="fa fa-user-circle"></i>
+                        {{ (auth) ? auth.member_full_name : "" }} &nbsp;<i class="fa fa-user-circle"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <span class="dropdown-menu-arrow"></span>
                         <div class="row ml-0 mr-0">
                             <div class="col-md-7">
-                                <h6 class="mb-0">{{auth.member_full_name}}</h6>
-                                <p class="mb-0" style="font-size: small;">رقم عضوية : {{auth.member_uid}}</p>
+                                <h6 class="mb-0">{{(auth) ? auth.member_full_name : ""}}</h6>
+                                <p class="mb-0" style="font-size: small;">رقم عضوية : {{(auth) ? auth.member_uid : ""}}</p>
                             </div>
                             <div class="col-md-5" align="left">
                                 <img src="../../assets/rtl/images/favicon.png" class="custom-fav-img">
@@ -55,8 +55,8 @@
                         <span class="dropdown-menu-arrow"></span>
                         <div class="row ml-0 mr-0">
                             <div class="col-md-7">
-                                <h6 class="mb-0">{{auth.member_full_name}}</h6>
-                                <p class="mb-0" style="font-size: small;">رقم عضوية : {{auth.member_uid}}</p>
+                                <h6 class="mb-0">{{(auth) ? auth.member_full_name : ""}}</h6>
+                                <p class="mb-0" style="font-size: small;">رقم عضوية : {{(auth) ? auth.member_uid : ""}}</p>
                             </div>
                             <div class="col-md-5" align="left">
                                 <img src="../../assets/rtl/images/favicon.png" class="custom-fav-img">
@@ -122,7 +122,6 @@
         watch: {},
         methods: {
             isAuthenticated: function(){
-                console.log(this.auth);
                 if (this.auth){
                     return true;
                 }

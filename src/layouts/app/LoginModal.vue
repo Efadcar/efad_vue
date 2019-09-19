@@ -206,9 +206,7 @@
                             let authUser = data['result'];
                             localStorage.setItem('auth', JSON.stringify(authUser));
                             component.successLogin();
-                            
-                            console.log(localStorage);
-                            
+                                                        
 
                             var esc = $.Event("keydown", { keyCode: 27 });
                             $("body").trigger(esc);
