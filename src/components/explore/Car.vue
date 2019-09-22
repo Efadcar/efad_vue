@@ -28,7 +28,7 @@
                 <div class="col-lg-12" v-if="car.car_in_stock == 1 && car.car_status == 1">
                     <span class="dot11" style="background-color: rgb(61,145,16)"></span>
                     <div class="btn-reserve btn-reserve1"> 
-                        <a :href="'https://www.efadcar.com/book/addnew/'+ car.car_uid" class="btn btn-default">احجز الآن</a>
+                        <router-link :to="'/booking/new/'+ car.car_uid" class="btn btn-default">احجز الآن</router-link>
                     </div>
                 </div>
                 <div class="col-lg-12" v-if="car.car_in_stock == 0">

@@ -109,7 +109,7 @@
                 }
             },
             nextPage: function(){
-                if(this.offset < this.maxOffest){
+                if(this.offset + 1 < this.maxOffest){
                     let data = {
                         key: "offset",
                         value: this.offset + 1,

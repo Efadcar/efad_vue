@@ -384,7 +384,7 @@
                         <div class="row d-flex align-items-center ">
                             <div class="col-sm-7">
                                 <div class="carnamePay ml-2 text-left">
-                                    <h3>نوع السيارة : <span>{{result.cb_uid}}</span><span>{{result.cm_uid}}</span><span>{{result.car_model_year}}</span></h3>
+                                    <h3>نوع السيارة : <span>{{result.cb_uid}} </span><span>{{result.cm_uid}}</span><span>{{result.car_model_year}}</span></h3>
                                    
                                 </div>
                                 
@@ -420,7 +420,7 @@
                                         <p style="direction: ltr;">{{bookingResult.book_end_date}}</p> </li>
                                     <li style="width: 24%">
                                         <div class="cartype-logo"> مدينة الاستلام </div>
-                                        <span >{{bookingResult.delivery_city_name}}</span>
+                                        <span class="delivery_city_name_span"></span>
                                     </li>
                                 </ul>
                             </div>
@@ -523,13 +523,13 @@
                                                     <tr>
                                                         <td class="text-left">سعر الاشتراك
                                                         </td>
-                                                        <td class="text-right"><span>1500</span> ر.س.</td>
+                                                        <td class="text-right"><span>{{bookingResult.total_fees}}</span> ر.س.</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="text-left">ضريبة القيمه المضافة 5% للخدمة
                                                         </td>
-                                                        <td class="text-right"><span id="tax-total">190</span> ر.س.</td>
+                                                        <td class="text-right"><span id="tax-total-perc"></span> ر.س.</td>
                                                     </tr>
 
 
@@ -552,7 +552,7 @@
                                                             <h3>المبلغ الإجمالي </h3>
                                                         </td>
                                                         <td class="text-right">
-                                                            <h4><span class="total-price">2100 </span> ر.س.</h4>
+                                                            <h4><span class="total-price"> </span> ر.س.</h4>
                                                         </td>
                                                     </tr>
                                                 </tfoot>
@@ -563,7 +563,7 @@
                                         <p class="" style="color: #000">بالضغط على " تأكيد الحجز " أنت توافق على <a href="<?= site_url('terms_and_conditions') ?>" target="_blank" style="text-decoration: underline; color: #01355d">شروط الاستخدام </a> و <a href="<?= site_url('privcy_policy') ?>" target="_blank" style="text-decoration: underline; color: #01355d">سياسة الخصوصية </a></p>
                                     </div>
                                     <div class="col-sm-12 text-center ">
-                                        <button class="btn btn-default pl-4 pr-4 mb-2 mt-4" id="paynow">تأكيد الحجز</button>
+                                        <button class="btn btn-default pl-4 pr-4 mb-2 mt-4 booking_confirmation" id="paynow">تأكيد الحجز</button>
                                     </div>
                                 </div>
                                 
@@ -586,7 +586,8 @@
 
 <script>
    // Import plugins if any
-
+    require("../../assets/global/plugins/waitme/waitMe.js");
+    require("../../assets/global/plugins/waitme/waitMe.css");
    // Import custom components if any
 
    // Component local properties if any
@@ -599,7 +600,6 @@
            return {
                 result: {},
                 bookingResult: {},
-
                 isHidden: false
            };
        },
@@ -609,6 +609,7 @@
             let component = this;
             document.title = 'افاد | احجز الان';
             $(document).ready(function(){
+                window.scrollTo(0, 0);
                 function run_waitMe(el, num, effect){
                     let text = 'الرجاء الانتظار...';
                     let fontSize = '';
@@ -654,24 +655,34 @@
                 $('#paymentCard').hide();
                 $('.cash-fees-tr').hide();
                 
-                $('#paynow').click( function() {
-                    run_waitMe($('body'), 1, 'ios');
-                    // $('#paynow').prop('disabled', true);
-                    // confirmBooking();
+                $('.booking_confirmation').click( function() {
+                    $('.booking_confirmation').prop('disabled', true);
+                    confirmBooking();
                 });
             
                 function confirmBooking()
                 {
-                    let form = $('#confirm-book');
+                    run_waitMe($('.confirm-booking-section'), 1, 'ios');
+                    let auth = JSON.parse(localStorage.getItem('auth'));
                     $.ajax({
-                        url: '',
+                        url: 'https://www.efadcar.com/api/v1/bookingConfirm',
                         type: 'POST',
-                        data: form.serialize(), // serializes the form's elements.
+                        data: {
+                            car_uid: component.result.car_uid,
+                            book_start_date: component.bookingResult.book_start_date,
+                            book_end_date: component.bookingResult.book_end_date,
+                            delivery_city_uid: $('.inputStatebookWeb').val(),
+                            book_total_days: component.bookingResult.days,
+                            daily_rate: component.bookingResult.daily_rate,
+                            tax_total: $('.total-price').html(),
+                            payment_method: "visa",
+                        },
+                        beforeSend: function(xhr){xhr.setRequestHeader('token', auth.token);},
                         success: function(data) {
                         console.log(data);
                             if(data.status == 1)
                             {
-                                //window.location.replace('');
+                                toastr.success(data.message, 'نجاح');
                             }
                             else
                             {
@@ -679,6 +690,7 @@
                                 toastr.error(data.message, 'خطأ');
                             }
                             
+                            $('.confirm-booking-section').waitMe('hide');
                         },
                     });
                 }   
@@ -691,7 +703,7 @@
                         $('#paymentCard').show();
                         $('#transferInfo').hide();
                         $('.cash-fees-tr').hide();
-                        $('.total-price').html($('#total_without_cash').val());
+                        $('.total-price').html(component.bookingResult.total_fees + component.bookingResult.total_fees * (5 / 100));
                         $('#paynow').html('دفع');
                         
                     }
@@ -699,14 +711,14 @@
                         $('#paymentCard').hide();
                         $('#transferInfo').hide();
                         $('.cash-fees-tr').show();
-                        $('.total-price').html($('#total_with_cash').val());
+                        $('.total-price').html(component.bookingResult.total_fees + component.bookingResult.total_fees * (5 / 100) + 150);
                         $('#paynow').html('تأكيد الحجز');
                     }
                     else if (this.value == 'transfer') {
                         $('#transferInfo').show();
                         $('#paymentCard').hide();
                         $('.cash-fees-tr').hide();
-                        $('.total-price').html($('#total_without_cash').val());
+                        $('.total-price').html(component.bookingResult.total_fees + component.bookingResult.total_fees * (5 / 100));
                         $('#paynow').html('تأكيد الحجز');
                     }
                 });
@@ -805,9 +817,15 @@
                         if (inputStatebookMob > 0){
                             $('.inputStatebookWeb').val(inputStatebookMob);
                         }
+                        
+                        $('.delivery_city_name_span').html($('.inputStatebookMob').children('option:selected').text());
 
-                        component.bookingResult.delivery_city_uid = inputStatebookWeb;
-                        component.bookingResult.delivery_city_name = $('.inputStatebookMob').children('option:selected').text();
+                        $('#tax-total-perc').html(component.bookingResult.total_fees * (5 / 100));
+
+                        $('.total-price').html(component.bookingResult.total_fees + component.bookingResult.total_fees * (5 / 100));
+
+                        // component.delivery_city_uid = inputStatebookWeb;
+                        // component.delivery_city_name = ;
 
                         var inputStatebook = $('#inputStatebook').children('option:selected').val();
 
@@ -821,7 +839,7 @@
                             }
                             else{
                                 $('.new-booking-section').hide();
-                                $('.subscribe-booking-section').show();
+                                $('.confirm-booking-section').show();
                                 window.scrollTo(0, 0);
                             }
                         }                       
