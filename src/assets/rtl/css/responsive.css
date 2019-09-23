@@ -809,6 +809,23 @@
 	    margin-bottom: 39px;
 	}
 
+	.firstTabProfile{
+		margin-left: -10px !important;
+		margin-right: -10px !important;
+	}
+
+	.secondTabProfile{
+		margin-right: -1px !important;
+	}
+
+	.thirdTabProfile{
+		margin-right: -25px !important;
+	}
+
+	#tab1{
+		margin: 0px 0% !important;
+	}
+
 	.payment-img {
 		width: 132% !important;
 	}

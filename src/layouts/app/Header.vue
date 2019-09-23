@@ -23,13 +23,17 @@
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= site_url('members/profile') ?>#tab1">بياناتي</a>
+                        <router-link to="/profile?#tab1" class="dropdown-item clickPTab1">
+                            بياناتي
+                        </router-link>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= site_url('members/profile') ?>#tab2">اﻹشتراكات</a>
+                        <router-link to="/profile?#tab2" class="dropdown-item clickPTab2">
+                            اﻹشتراكات
+                        </router-link>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= site_url('members/profile') ?>#tab3">
+                        <router-link to="/profile?#tab3" class="dropdown-item clickPTab3">
                             العضوية
-                        </a>
+                        </router-link>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" v-on:click='logout'>تسجيل خروج</a>
                     </div>                                      
@@ -63,13 +67,17 @@
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= site_url('members/profile') ?>#tab1">بياناتي</a>
+                        <router-link to="/profile?#tab1" class="dropdown-item" id="tab1">
+                            بياناتي
+                        </router-link>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= site_url('members/profile') ?>#tab2">اﻹشتراكات</a>
+                        <router-link to="/profile?#tab2" class="dropdown-item" id="tab2">
+                            اﻹشتراكات
+                        </router-link>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= site_url('members/profile') ?>#tab3">
+                        <router-link to="/profile?#tab3" class="dropdown-item" id="tab3">
                             العضوية
-                        </a>
+                        </router-link>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="<?= site_url('members/logout') ?>">تسجيل خروج</a>
                     </div>                                      

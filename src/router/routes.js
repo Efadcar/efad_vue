@@ -2,7 +2,7 @@
 // initialize routes for the whole application
 const routerOptions = [
 	{
-		path: '/',
+		path: process.env.VUE_APP_PUBLIC_PATH+'/',
 		component: 'home/Index',
 		name: 'home',
 		meta: {
@@ -13,7 +13,7 @@ const routerOptions = [
 		},
 	},
 	{
-		path: '/about',
+		path: process.env.VUE_APP_PUBLIC_PATH+'/about',
 		component: 'about/Index',
 		name: 'about',
 		meta: {
@@ -24,7 +24,7 @@ const routerOptions = [
 		},
 	},
 	{
-		path: '/booking/new/:id',
+		path: process.env.VUE_APP_PUBLIC_PATH+'/booking/new/:id',
 		component: 'booking/new',
 		name: 'newBooking',
 		meta: {
@@ -35,7 +35,7 @@ const routerOptions = [
 		},
 	},
 	{
-		path: '/booking/pay',
+		path: process.env.VUE_APP_PUBLIC_PATH+'/booking/pay',
 		component: 'booking/pay',
 		name: 'payBooking',
 		meta: {
@@ -46,7 +46,7 @@ const routerOptions = [
 		},
 	},
 	{
-		path: '/booking/subscribe',
+		path: process.env.VUE_APP_PUBLIC_PATH+'/booking/subscribe',
 		component: 'booking/subscribe',
 		name: 'subscribeBooking',
 		meta: {
@@ -57,7 +57,7 @@ const routerOptions = [
 		},
 	},
 	{
-		path: '/booking/subscribe-b',
+		path: process.env.VUE_APP_PUBLIC_PATH+'/booking/subscribe-b',
 		component: 'booking/subscribe-b',
 		name: 'subscribeBookings',
 		meta: {
@@ -68,7 +68,7 @@ const routerOptions = [
 		},
 	},
 	{
-		path: '/profile',
+		path: process.env.VUE_APP_PUBLIC_PATH+'/profile',
 		component: 'profile/index',
 		name: 'profile',
 		meta: {
@@ -79,7 +79,7 @@ const routerOptions = [
 		},
 	},
 	{
-		path: '*',
+		path: process.env.VUE_APP_PUBLIC_PATH+'*',
 		component: 'error/404',
 		name: '404',
 		meta: {
