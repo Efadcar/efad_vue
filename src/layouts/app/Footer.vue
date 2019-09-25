@@ -7,8 +7,8 @@
                         <ul class="footermenu pb-8">
                             <li><router-link to="/about">عن إفاد</router-link></li>
                             <li><a href="https://www.linkedin.com/company/efadsa/jobs/" target="_blank">الوظائف</a></li>
-                            <li><a href="<?= site_url('branches') ?>">الفروع</a></li>
-                            <li><a href="<?= site_url('faq') ?>">الأسئلة المتكررة</a> </li>
+                            <li><router-link to="/branches">الفروع</router-link></li>
+                            <li><router-link to="/faqs">الأسئلة المتكررة</router-link></li>
                         </ul>
                         <div class="clearfix"></div>
                         <!--
@@ -25,8 +25,8 @@
                             <li> <span> <img src="/assets/rtl/images/payment/cash1.png" class="img-thumbnail" alt="كاش" style="width: 73px;" /></span> </li>
                         </ul>
                         <ul class="footerBottomMenu pt-8 policy_web_view">
-                            <li><a href="<?= site_url('Terms_of_use') ?>">شروط الاستخدام</a></li>
-                            <li><a href="<?= site_url('privcy_policy') ?>">سياسة الخصوصية</a></li>
+                            <li><router-link to="/terms-of-use">شروط الاستخدام</router-link></li>
+                            <li><router-link to="/privacy-policy">سياسة الخصوصية</router-link></li>
                             <li>
                                 <p class="pr-1"> إفاد © 2019 </p>
                             </li>
@@ -41,13 +41,13 @@
                     </div>
                     <div class="col-lg-2 col-sm-7 col-xs-12 text-center">
                         <h3 class="mb-1">قريباً</h3>
-                        <a href="<?= site_url() ?>"><img src="/assets/rtl/images/google-play%20(2).png" class="mob-gp mb-2" style="width: 140px;height: 42px;"></a>
-                        <a href="<?= site_url() ?>"><img src="/assets/rtl/images/app-store%20(2).png" class="mob-as mb-2" style="width: 140px;height: 42px;"></a>
+                        <a href="/"><img src="/assets/rtl/images/google-play%20(2).png" class="mob-gp mb-2" style="width: 140px;height: 42px;"></a>
+                        <a href="/"><img src="/assets/rtl/images/app-store%20(2).png" class="mob-as mb-2" style="width: 140px;height: 42px;"></a>
                     </div>
                     <div class="col-lg-3 col-sm-5 col-xs-12 text-right custom-align logo-footer">
-                        <a href="<?= site_url() ?>"><img src="/assets/rtl/images/last-logo.png" alt="Efad" class="footerlogo"/></a>
+                        <a href="/"><img src="/assets/rtl/images/last-logo.png" alt="Efad" class="footerlogo"/></a>
                         <div class="footer-social d-flex  pt-3 pb-3 ">
-                            <p> 
+                            <p>
                                 <a href="mailto:wecare@efadcar.com"><i class="fas fa-envelope"></i></a>
                                 <a href="https://www.linkedin.com/company/efadsa/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="https://www.instagram.com/efadcar" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -57,8 +57,8 @@
                     </div>
                     <div class="col-lg-5 col-sm-7 col-xs-12 pr-10 mb-5 policy_mobile_view">
                         <ul class="footerBottomMenu">
-                            <li><a href="<?= site_url('Terms_of_use') ?>">شروط الاستخدام</a></li>
-                            <li><a href="<?= site_url('privcy_policy') ?>">سياسة الخصوصية</a></li>
+                            <li><router-link to="/terms-of-use">شروط الاستخدام</router-link></li>
+                            <li><router-link to="/privacy-policy">سياسة الخصوصية</router-link></li>
                             <li>
                                 <p class="pr-1"> إفاد © 2019 </p>
                             </li>

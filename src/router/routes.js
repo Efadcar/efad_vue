@@ -79,6 +79,39 @@ const routerOptions = [
 		},
 	},
 	{
+		path: process.env.VUE_APP_PUBLIC_PATH+'/branches',
+		component: 'branches/index',
+		name: 'branches',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'branches',
+			activeSubNav: '',
+			requiresAuth: true,
+		},
+	},
+	{
+		path: process.env.VUE_APP_PUBLIC_PATH+'/terms-of-use',
+		component: 'terms/index',
+		name: 'terms',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'terms',
+			activeSubNav: '',
+			requiresAuth: true,
+		},
+	},
+	{
+		path: process.env.VUE_APP_PUBLIC_PATH+'/privacy-policy',
+		component: 'terms/privacy',
+		name: 'privacy',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'privacy',
+			activeSubNav: '',
+			requiresAuth: true,
+		},
+	},
+	{
 		path: process.env.VUE_APP_PUBLIC_PATH+'*',
 		component: 'error/404',
 		name: '404',
