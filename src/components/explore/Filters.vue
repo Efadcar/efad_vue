@@ -346,6 +346,7 @@
                     $('.advancedSearchView').show();
                 });
 
+
             });
 
         },
@@ -451,6 +452,7 @@
             brandChanged: function(event){
                 const component = this;
                 this.car_models = [];
+                component.cm_uid = 0;
 
                 if(event.target.value != 0){
                     // fetch car models

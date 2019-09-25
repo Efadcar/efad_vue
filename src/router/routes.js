@@ -79,6 +79,28 @@ const routerOptions = [
 		},
 	},
 	{
+		path: process.env.VUE_APP_PUBLIC_PATH+'/bookings/:id',
+		component: 'profile/bookings',
+		name: 'bookings',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'bookings',
+			activeSubNav: '',
+			requiresAuth: true,
+		},
+	},
+	{
+		path: process.env.VUE_APP_PUBLIC_PATH+'/faqs',
+		component: 'faqs/index',
+		name: 'faqs',
+		meta: {
+			layout: 'app-layout',
+			activeNav: 'faqs',
+			activeSubNav: '',
+			requiresAuth: true,
+		},
+	},
+	{
 		path: process.env.VUE_APP_PUBLIC_PATH+'*',
 		component: 'error/404',
 		name: '404',

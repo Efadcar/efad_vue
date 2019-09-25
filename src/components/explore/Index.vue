@@ -19,9 +19,9 @@
                             <div class="cars-many"> <span>1000</span> <span>سيارة</span> </div>
                         </div>
                         <div class="col-6 col-xs-6 ">
-                            <a href="#">
+                            <router-link to='/branches'
                                 <div class="cars-branch"> <span>4</span> <span>مدن</span> </div>
-                            </a>
+                            </router-link>
                         </div>
                     </div>
 
@@ -104,6 +104,7 @@
                 component.filters.search_text = data;
                 
                 // fetch data from back-end
+                component.filters.offset = 0;
                 component.fetchResults();
             });    
 
@@ -111,12 +112,13 @@
                 component.filters[data.key] = data.value;
                 
                 if(data.key == "price_period"){
-                    
+                    component.filters.offset = 0;
                 }else if(data.key == "offset"){
                     // fetch data from back-end
                     component.fetchResults("only_pagination");
                 }else {
                     // fetch data from back-end
+                    component.filters.offset = 0;
                     component.fetchResults();
                 }
             });  

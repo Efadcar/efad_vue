@@ -34,7 +34,7 @@ ol, ul {
 .intl-tel-input{display: block}
 .dropdown-menu-arrow {
   top: -25px;
-  left: 50%;
+  left: -81%;
   width: 0;
   height: 0;
   position: relative;
@@ -62,7 +62,7 @@ right: -8px;
 border-bottom-color: rgba(0,0,0,.15);
 }
 .show>.dropdown-menu {
-left: 17%;
+left: 12.6%;
 transform: translateX(-50%);
 }
 

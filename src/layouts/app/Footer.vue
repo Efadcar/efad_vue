@@ -3,7 +3,7 @@
         <div class="footerTopWide  pb-2">
             <div class="container-fluid custom-footer-mar">
                 <div class="row align-items-center ">
-                    <div class="col-lg-5 col-sm-7 col-xs-12 pr-10">
+                    <div class="col-lg-5 col-sm-7 col-xs-12 pr-10 customRespo">
                         <ul class="footermenu pb-8">
                             <li><router-link to="/about">عن إفاد</router-link></li>
                             <li><a href="https://www.linkedin.com/company/efadsa/jobs/" target="_blank">الوظائف</a></li>

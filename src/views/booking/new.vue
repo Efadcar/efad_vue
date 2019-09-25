@@ -4,14 +4,14 @@
             <section rol="form-reservation">
                 <div class="container  mb-2 pb-4">
                     <div class="row">
-                        <div class="col-12"> <a href="#" class="btn btn-default cutom-btn active">استكمال بيانات الحجز</a> <!--<a href="#" class="btn btn-default cutom-btn">الحجز المجانى</a> --> </div>
+                        <div class="col-12"> <a href="#" class="btn cutom-btn active">استكمال بيانات الحجز</a> <!--<a href="#" class="btn btn-default cutom-btn">الحجز المجانى</a> --> </div>
                     </div>
                     <div class="reservation-form  bg-secondary">
                         <div class="row">
                             <div class="col-sm-4 ">
                                 <div class="carname d-flex ">
                                     <h2>
-                                        <span>{{result.cb_uid}}</span> 
+                                        <span>{{result.cb_uid}} </span> 
                                         <span>{{result.cm_uid}} </span>
                                         <span>{{result.car_model_year}}</span>
                                     </h2>
@@ -25,20 +25,21 @@
                                     <div class="custom-slider-mob custom-margin-car-slider">
                                         <div class="price-car text-right"> </div>
                                         <div class="car-img">
-                                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                            <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
                                               <div class="carousel-inner">
                                                 <div class="carousel-item active">
-                                                    
-                                                  <img class="d-block w-100" :src="result.image" alt="First slide">
-                                                    
+                                                  <img class="d-block w-100" v-if="result.hasOwnProperty('album')" :src="result.album[0]" alt="First slide">
+                                                </div>
+                                                <div v-for="(imgCarR, index) in result.album" v-if="index != 0" class="carousel-item">
+                                                  <img  class="d-block w-100" :src="imgCarR" alt="First slide">
                                                 </div>
                                                 
                                               </div>
-                                              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" >
+                                              <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev" >
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">Previous</span>
                                               </a>
-                                              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                              <a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">Next</span>
                                               </a>
@@ -71,17 +72,20 @@
                             <div class="col-sm-7 ml-5 custom-des-web-slider custom-margin-car-slider">
                                 <div class="price-car text-right"> </div>
                                 <div class="car-img">
-                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
                                       <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                          <img class="d-block w-100" :src="result.image" alt="First slide">
-                                        </div>                            
+                                          <img class="d-block w-100" v-if="result.hasOwnProperty('album')" :src="result.album[0]" alt="First slide">
+                                        </div>
+                                        <div v-for="(imgCarR, index) in result.album" v-if="index != 0" class="carousel-item">
+                                          <img  class="d-block w-100" :src="imgCarR" alt="First slide">
+                                        </div>                        
                                       </div>
-                                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" >
+                                      <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev" >
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Previous</span>
                                       </a>
-                                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                      <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                       </a>
@@ -378,7 +382,7 @@
             <section rol="form-reservation">
                 <div class="container  mb-2 pb-4">
                     <div class="row">
-                        <div class="col-12"> <a href="#" class="btn btn-default cutom-btn active"> تفاصيل الاشتراك</a> <!--<a href="#" class="btn btn-default cutom-btn">الحجز المجانى</a> --> </div>
+                        <div class="col-12"> <a href="#" class="btn cutom-btn active"> تفاصيل الاشتراك</a> <!--<a href="#" class="btn btn-default cutom-btn">الحجز المجانى</a> --> </div>
                     </div>
                     <div class="reservation-form  bg-secondary">
                         <div class="row d-flex align-items-center ">
@@ -427,18 +431,20 @@
                             <div class="col-sm-4 custom-margin-car-slider">
                                 
                                 <div class="car-img">
-                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
                                       <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                          <img class="d-block w-100" :src="result.image" alt="First slide">
+                                          <img class="d-block w-100" v-if="result.hasOwnProperty('album')" :src="result.album[0]" alt="First slide">
                                         </div>
-                                        
+                                        <div v-for="(imgCarR, index) in result.album" v-if="index != 0" class="carousel-item">
+                                          <img  class="d-block w-100" :src="imgCarR" alt="First slide">
+                                        </div>
                                       </div>
-                                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" >
+                                      <a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev" >
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Previous</span>
                                       </a>
-                                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                      <a class="carousel-control-next" href="#carouselExampleControls3" role="button" data-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                       </a>
@@ -484,7 +490,8 @@
                                         <input type="radio" id="transfer" name="customRadio" class="custom-control-input" value="transfer" checked>
                                         <label class="custom-control-label" for="transfer">
                                             <ul class="payment-img custom-pay-img">
-                                                <li> تحويل بنكي</li>
+                                                <li v-if="urlStartDateCalendar" style="margin-top: 13px;"> تحويل بنكي</li>
+                                                <li v-else> تحويل بنكي</li>
                                             </ul>
                                         </label>
                                     </div>
@@ -501,7 +508,8 @@
                                         <input type="radio" id="cash" name="customRadio" class="custom-control-input" value="cash">
                                         <label class="custom-control-label" for="cash">
                                             <ul class="payment-img custom-pay-img">
-                                                <li> نقدي (كاش) <span style="color: red">* 150 ر.س. إضافية</span> </li>
+                                                <li v-if="urlStartDateCalendar" style="margin-top: 13px;"> نقدي (كاش) <span style="color: red">* 150 ر.س. إضافية</span> </li>
+                                                <li v-else> نقدي (كاش) <span style="color: red">* 150 ر.س. إضافية</span> </li>
                                             </ul>
                                         </label>
                                     </div>
@@ -560,7 +568,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center mt-4 ">
-                                        <p class="" style="color: #000">بالضغط على " تأكيد الحجز " أنت توافق على <a href="<?= site_url('terms_and_conditions') ?>" target="_blank" style="text-decoration: underline; color: #01355d">شروط الاستخدام </a> و <a href="<?= site_url('privcy_policy') ?>" target="_blank" style="text-decoration: underline; color: #01355d">سياسة الخصوصية </a></p>
+                                        <p class="" style="color: #000">بالضغط على " تأكيد الحجز " أنت توافق على <router-link to="/term-of-use"target="_blank" style="text-decoration: underline; color: #01355d">شروط الاستخدام </router-link> و <router-link to="/privacy-policy" target="_blank" style="text-decoration: underline; color: #01355d">سياسة الخصوصية</router-link></p>
                                     </div>
                                     <div class="col-sm-12 text-center ">
                                         <button class="btn btn-default pl-4 pr-4 mb-2 mt-4 booking_confirmation" id="paynow">تأكيد الحجز</button>
@@ -600,6 +608,8 @@
            return {
                 result: {},
                 bookingResult: {},
+                urlStartDateCalendar: this.$route.query.start,
+                urlBookUIDP: this.$route.query.book_uid,
                 isHidden: false
            };
        },
@@ -657,9 +667,51 @@
                 
                 $('.booking_confirmation').click( function() {
                     $('.booking_confirmation').prop('disabled', true);
-                    confirmBooking();
+                    if (component.urlStartDateCalendar){alert('extend');
+                        extendBooking();
+                    }
+                    else{alert('confirm');
+                        confirmBooking();
+                    }
                 });
             
+                function extendBooking()
+                {
+                    run_waitMe($('.confirm-booking-section'), 1, 'ios');
+                    let auth = JSON.parse(localStorage.getItem('auth'));
+                    $.ajax({
+                        url: 'https://www.efadcar.com/api/v1/bookingExtend',
+                        type: 'POST',
+                        data: {
+                            book_uid: component.urlBookUIDP,
+                            car_uid: component.result.car_uid,
+                            book_start_date: component.bookingResult.book_start_date,
+                            book_end_date: component.bookingResult.book_end_date,
+                            delivery_city_uid: $('.inputStatebookWeb').val(),
+                            book_total_days: component.bookingResult.days,
+                            daily_rate: component.bookingResult.daily_rate,
+                            tax_total: $('.total-price').html(),
+                            payment_method: $("input[name='customRadio']:checked").val(),
+                        },
+                        beforeSend: function(xhr){xhr.setRequestHeader('token', auth.token);},
+                        success: function(data) {
+                        //console.log(data);
+                            if(data.status == 1)
+                            {
+                                toastr.success(data.message, 'نجاح');
+                            }
+                            else
+                            {
+                                toastr.error(data.message, 'خطأ');
+                            }
+                            
+                            $('.confirm-booking-section').waitMe('hide');
+                            component.$router.replace({ path: '/profile#tab2' });
+                        },
+                    });
+                }   
+
+
                 function confirmBooking()
                 {
                     run_waitMe($('.confirm-booking-section'), 1, 'ios');
@@ -675,22 +727,22 @@
                             book_total_days: component.bookingResult.days,
                             daily_rate: component.bookingResult.daily_rate,
                             tax_total: $('.total-price').html(),
-                            payment_method: "visa",
+                            payment_method: $("input[name='customRadio']:checked").val(),
                         },
                         beforeSend: function(xhr){xhr.setRequestHeader('token', auth.token);},
                         success: function(data) {
-                        console.log(data);
+                        //console.log(data);
                             if(data.status == 1)
                             {
                                 toastr.success(data.message, 'نجاح');
                             }
                             else
                             {
-                                console.log(data);
                                 toastr.error(data.message, 'خطأ');
                             }
                             
                             $('.confirm-booking-section').waitMe('hide');
+                            component.$router.replace({ path: '/profile#tab2' });
                         },
                     });
                 }   
@@ -918,7 +970,7 @@
 
                         
                         $(function () {
-                            $('[data-toggle=\"tooltip\"]').tooltip()
+                            $('[data-toggle="tooltip"]').tooltip()
                         });
                         
                         var timeoutId;
@@ -929,16 +981,29 @@
                             var datee = $('#date-start').bootstrapMaterialDatePicker().val();
 
                             datee = date_lang_converter(datee);
+                            if (component.urlStartDateCalendar){
+                                datee = component.urlStartDateCalendar;
+                                $('#date-start').prop( 'disabled', true );
+                                var newDate = new Date(datee);
+                                newDate.setDate(newDate.getDate() + 1);
+                            }
+                            else{
+                                var newDate = new Date(datee);
+                                newDate.setDate(newDate.getDate() + 7);    
+                            }
 
                             $('#date-start').bootstrapMaterialDatePicker().val(datee);
-                            var newDate = new Date(datee);
-                            newDate.setDate(newDate.getDate() + 7);
+                            
                             $('#date-end').bootstrapMaterialDatePicker('setMinDate', newDate);
 
                             $('.total-days').html('0');
                             $('.total-price').html('0');
                         });
 
+                        if (component.urlStartDateCalendar){
+                            $('#date-start').trigger('change');
+                        }
+                        
                         $('#date-end').on('input propertychange change', function() {
 
                             var datee = $('#date-start').bootstrapMaterialDatePicker().val();
@@ -949,8 +1014,14 @@
 
                             $('#date-start').bootstrapMaterialDatePicker().val(datee);
                             $('#date-end').bootstrapMaterialDatePicker().val(end_datee);
-                            var newDate = new Date(datee);
-                            newDate.setDate(newDate.getDate() + 7);
+                            if (component.urlStartDateCalendar){
+                                var newDate = new Date(datee);
+                                newDate.setDate(newDate.getDate() + 1);
+                            }
+                            else{
+                                var newDate = new Date(datee);
+                                newDate.setDate(newDate.getDate() + 7);    
+                            }
                             $('#date-end').bootstrapMaterialDatePicker('setMinDate', newDate);
                             $.ajax({
                                 type: 'POST',
@@ -1138,6 +1209,13 @@
         text-align: start;
     }
     
+    #inputStatebook{
+        -webkit-appearance: none !important;
+    }
+
+    #date-end, #date-start{
+        background-color: #e9ecef;
+    }
     @media (max-width: 330px) and (min-width: 290px){
         .membership-column{
             max-width: 100% !important;   

@@ -32,21 +32,21 @@
                         </router-link>
                         <div class="dropdown-divider"></div>
                         <router-link to="/profile?#tab3" class="dropdown-item clickPTab3">
-                            العضوية
+                            الدفع السريع
                         </router-link>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" v-on:click='logout'>تسجيل خروج</a>
                     </div>                                      
-                    <a href="<?= site_url('memberships/subscribe') ?>" class="btn" style="background-color: #eb3f31; color: #fff; ">
+                    <!-- <a href="<?= site_url('memberships/subscribe') ?>" class="btn" style="background-color: #eb3f31; color: #fff; ">
                         <span><span>مميزات العضوية</span></span>
-                    </a>
+                    </a> -->
                 </div>
                 <div class="navbar-buttons  mbr-section-btn  ml-auto nonAuthMenu" v-show="!isAuthenticated()"> 
-                    <a id="top-login-button" href="#login_form_ajax" class="mr-2 login-link">
+                    <a id="top-login-button" href="#login_form_ajax" class="mr-2">
                     تسجيل دخول
                     </a>
-                    <a href="#" class="btn btn--accent">
-                        <span>اشتراك العضوية</span>
+                    <a href="#login_form_ajax" class="btn btn--accent register-popup">
+                        <span>تسجيل حساب جديد</span>
                     </a> 
                 </div>
             </div>
@@ -76,21 +76,21 @@
                         </router-link>
                         <div class="dropdown-divider"></div>
                         <router-link to="/profile?#tab3" class="dropdown-item" id="tab3">
-                            العضوية
+                            الدفع السريع
                         </router-link>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= site_url('members/logout') ?>">تسجيل خروج</a>
+                        <a class="dropdown-item" href="#" v-on:click='logout'>تسجيل خروج</a>
                     </div>                                      
-                    <a href="<?= site_url('memberships/subscribe') ?>" class="btn" style="background-color: #eb3f31; color: #fff;margin-right: 51px;width: 62%;font-size: 12px;">
+                    <!-- <a href="<?= site_url('memberships/subscribe') ?>" class="btn" style="background-color: #eb3f31; color: #fff;margin-right: 51px;width: 62%;font-size: 12px;">
                         <span><span>مميزات العضوية</span></span>
-                    </a>
+                    </a> -->
                 </div>
-                <div class="navbar-buttons  mbr-section-btn  ml-auto nonAuthMenu" v-show="!isAuthenticated()"> 
+                <div class="navbar-buttons  mbr-section-btn nonAuthMenu" v-show="!isAuthenticated()"> 
                     <a id="top-login-button2" href="#login_form_ajax" class="mr-2 login-link" style="width: 50%;font-size: 9px;float: right;">
                     تسجيل دخول
                     </a>
-                    <a href="#" class="btn btn--accent" style="width: 50%;font-size: 9px;margin-top: 29px;margin-right: 67px;">
-                        <span>اشتراك العضوية</span>
+                    <a href="#login_form_ajax" class="btn btn--accent register-popup" style="width: 50%;font-size: 9px;margin-top: 29px;margin-right: 67px;">
+                        <span>تسجيل حساب جديد</span>
                     </a> 
                 </div>
             </div>
@@ -125,6 +125,26 @@
         mounted() {
             $(document).ready(function(){
                 $('#top-login-button2').fancybox();
+
+                $('body').on('click', '#top-login-button2', function(){
+                    $('#login').show();
+                    $('#forgotpassword').hide();
+                    $('#register').hide();
+                });
+
+                $('body').on('click', '#top-login-button', function(){
+                    $('#login').show();
+                    $('#forgotpassword').hide();
+                    $('#register').hide();
+                });
+
+                $('.register-popup').fancybox();
+
+                $('body').on('click', '.register-popup', function(){
+                    $('#register').show();
+                    $('#login').hide();
+                    $('#forgotpassword').hide();
+                });
             });
         },
         watch: {},

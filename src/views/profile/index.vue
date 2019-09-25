@@ -8,11 +8,11 @@
                         <a href="#tab1" align="center" class="profileTabs ftProfile p-4"><i class="fa fa-user" style="font-size:36px;color:#01355d;padding-bottom: 5px;"></i><br>بياناتي</a>
                         <div class="arrow-down justify-content-between tab1"></div>
                     </li>
-                    <li>
+                    <li class="secondLiTabNavRespo">
                         <a href="#tab2" align="center" class="profileTabs stProfile p-4 "><i class="fas fa-car" style="font-size:36px;color:#01355d;padding-bottom: 5px;"></i><br>الاشتراكات</a>
                         <div class="arrow-down justify-content-between tab2"></div>
                     </li>
-                    <li>
+                    <li class="thirdLiTabNavRespo">
                         <a href="#tab3" align="center" class="profileTabs ttProfile p-4 "><i class="fas fa-clock" style="font-size:36px;color:#01355d;padding-bottom: 5px;"></i><br>الدفع السريع</a>
                         <div class="arrow-down justify-content-between tab3"></div>
                     </li>
@@ -40,7 +40,7 @@
 
                             <div class="form-group">
                                 <label for="city" class="">المدينة</label>
-                                <select class="form-control customEnable" id="inputState" name="city_uid">
+                                <select class="form-control customEnable selectlistv" id="inputState" name="city_uid">
                                     <option value="0">اختر مدينة</option>
                                     <option value="4" :selected="auth.city_uid == 4">الدمام</option>
                                     <option value="1" :selected="auth.city_uid == 1">الرياض</option>
@@ -51,7 +51,7 @@
 
                             <div class="form-group">
                                 <label for="mobile" class="">رقم الجوال</label>
-                                <input type="text" class="form-control customEnable" id="mobile" name="member_mobile" placeholder="ادخل رقم الجوال" :value="auth.member_mobile">
+                                <input type="text" class="form-control customEnable mobile" id="mobile" name="member_mobile" placeholder="ادخل رقم الجوال" :value="auth.member_mobile">
                             </div>
                             <div class="form-group">
                                 <label for="email" class="">البريد الإلكتروني</label>
@@ -74,55 +74,102 @@
                 </div>
             </section>
             <section id="tab2" class="tab-content pTab2 hide">
-                <div class="container">
-                    <div class="row margin-bottom border border custom-row-margin">
+                <div v-if="bookings.length > 0" class="container">
+                    <div v-for="bookIndex in bookings" class="row margin-bottom border border custom-row-margin" style="background-color: #f7f6f6;">
                         <div class="col-md-4">
-                            <img src="https://www.efadcar.com/assets/files/albums/sm_24b059888389d5a7c29d4c8b4cdd3a74.png" class="img-fluid">
+                            <img :src="bookIndex.car_obj.car_image" class="img-fluid">
                         </div>
                         <div class="col-md-4">
-                            <p><span class="desc">نوع السيارة: </span>كيا ريو 4 2019</p>
-                            <p><span class="desc">تاريخ الحجز: </span>22-09-2019</p>
-                            <p><span class="desc">تاريخ الاستلام: </span>30-10-2019</p>
-                            <p><span class="desc">مدينة الاستلام: </span> الرياض</p>
-                            <p class="color-dots"><span class="desc">حالة الاشتراك: </span> 
+                            <p><span class="desc">نوع السيارة: </span>{{ bookIndex.car_obj.car_brand_name }} {{ bookIndex.car_obj.car_model_name }} {{ bookIndex.car_obj.car_model_year }}</p>
+                            <p><span class="desc">تاريخ بداية الاشتراك: </span>{{bookIndex.book_start_date}}</p>
+                            <p><span class="desc">تاريخ نهاية الاشتراك: </span>{{bookIndex.book_end_date }}</p>
+                            <p><span class="desc">مدينة الاستلام: </span>{{ fotmatCityDelivery(bookIndex.delivery_city_uid) }}</p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 1">
+                                <span class="desc">حالة الاشتراك: </span> 
                                 <span style="margin-top: 6px;margin-right: 4px;" class="dot1"></span>
                                 <span style="margin-right: 19px;">نشط</span>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 2">
+                                <span class="desc">حالة الاشتراك: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
+                                <span style="margin-right: 19px;">منتهي</span>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 3">
+                                <span class="desc">حالة الاشتراك: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
+                                <span style="margin-right: 19px;">ملغي</span>
                             </p>
                         </div>
                         <div class="col-md-4">
                             <div class="amount">
                                 <h5>المبلغ الإجمالي</h5>
-                                <p class="total-amount" style="color: #01355d;">918.75 ر.س.</p>
+                                <p class="total-amount" style="color: #01355d;">{{bookIndex.inovice.invoice_total_fees_after_tax }} ر.س.</p>
                             </div>
-                            <button class="btn-primary participation-cancel">إلغاء الاشتراك</button><a target="_blank" href="https://www.efadcar.com/book/detail/41"><button class="btn-primary participation-desc">تفاصيل الاشتراك</button></a> 
+                            <button class="btn-primary participation-cancel" :data-bookuid="bookIndex.book_uid">إلغاء الاشتراك</button>
+                            <router-link :to="'/bookings/'+bookIndex.book_uid+'?total='+bookIndex.inovice.invoice_total_fees_after_tax">
+                                <button class="btn-primary participation-desc" :data-bookuid="bookIndex.book_uid">تفاصيل الاشتراك</button>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="container">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <router-link to="/" style="color: white;">
+                                <div style="text-align: center;background-color: #01355d;color: white;padding: 12px;border-radius: 13px;">لا توجد حجوزات سابقة. للحجز من هنا
+                                </div>
+                            </router-link>
                         </div>
                     </div>
                 </div>
             </section>
             <section id="tab3" class="tab-content pTab3 hide">
-                <div class="container">
-                    <div class="row margin-bottom border border custom-row-margin">
+                <div v-if="quickPayment.length > 0" class="container">
+                    <div v-for="bookIndex in quickPayment" class="row margin-bottom border border custom-row-margin" style="background-color: #f7f6f6;">
                         <div class="col-md-4">
-                            <img src="https://www.efadcar.com/assets/files/albums/sm_24b059888389d5a7c29d4c8b4cdd3a74.png" class="img-fluid">
+                            <img :src="bookIndex.car_obj.car_image" class="img-fluid">
                         </div>
                         <div class="col-md-4">
-                            <p><span class="desc">نوع السيارة: </span>كيا ريو 4 2019</p>
-                            <p><span class="desc">تاريخ الحجز: </span>22-09-2019</p>
-                            <p><span class="desc">تاريخ الاستلام: </span>30-10-2019</p>
-                            <p><span class="desc">مدينة الاستلام: </span> الرياض</p>
-                            <p class="color-dots"><span class="desc">حالة الاشتراك: </span> 
+                            <p><span class="desc">نوع السيارة: </span>{{ bookIndex.car_obj.car_brand_name }} {{ bookIndex.car_obj.car_model_name }} {{ bookIndex.car_obj.car_model_year }}</p>
+                            <p><span class="desc">تاريخ الحجز: </span>{{bookIndex.book_start_date}}</p>
+                            <p><span class="desc">تاريخ بداية الاشتراك: </span>{{bookIndex.book_end_date }}</p>
+                            <p><span class="desc">تاريخ نهاية الاشتراك: </span>{{ fotmatCityDelivery(bookIndex.delivery_city_uid) }}</p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 1">
+                                <span class="desc">حالة الاشتراك: </span> 
                                 <span style="margin-top: 6px;margin-right: 4px;" class="dot1"></span>
                                 <span style="margin-right: 19px;">نشط</span>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 2">
+                                <span class="desc">حالة الاشتراك: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
+                                <span style="margin-right: 19px;">منتهي</span>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 3">
+                                <span class="desc">حالة الاشتراك: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
+                                <span style="margin-right: 19px;">ملغي</span>
                             </p>
                         </div>
                         <div class="col-md-4">
                             <div class="amount">
                                 <h5>المبلغ الإجمالي</h5>
-                                <p class="total-amount" style="color: #01355d;">918.75 ر.س.</p>
+                                <p class="total-amount" style="color: #01355d;">{{bookIndex.inovice.invoice_total_fees_after_tax }} ر.س.</p>
                             </div>
-                            <a target="_blank" href="https://www.efadcar.com/book/detail/41">
-                                <button class="btn-primary participation-desc" style="width: 80%;">تجديد الاشتراك</button>
-                            </a> 
+                            <router-link :to="'/booking/new/'+bookIndex.car_uid+'?start='+bookIndex.book_end_date+'&book_uid='+bookIndex.book_uid">
+                                <button style="width: 81%;border-radius: 9px;color: #fff;background-color: #01355d;border-color: #01355d;" class="btn-primary participation-desc-renew" :data-bookuid="bookIndex.book_uid">تجديد الاشتراك</button>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="container">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <router-link to="/" style="color: white;">
+                                <div style="text-align: center;background-color: #01355d;color: white;padding: 12px;border-radius: 13px;">لا توجد حجوزات سابقة. للحجز من هنا
+                                </div>
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -146,22 +193,91 @@
        props: {},
        data() {
             return {
-                auth: JSON.parse(localStorage.getItem('auth'))
+                auth: JSON.parse(localStorage.getItem('auth')),
+                bookings: [],
+                quickPayment: [],
             };
        },
        computed: {},
        created() {},
        mounted() {
+            let component = this;
+            document.title = 'افاد | الصفحة الشخصية';
             // Profile page
             $(document).ready(function() {
                 let auth = JSON.parse(localStorage.getItem('auth'));
+
+                $('body').on('click', '.participation-cancel', function(){
+                    let book_uid = $(this).attr('data-bookuid');
+                    $.ajax({
+                        url: 'https://www.efadcar.com/api/v1/bookingCancel',
+                        type: 'POST',
+                        data: {
+                            book_uid: book_uid,
+                        },
+                        beforeSend: function(xhr){xhr.setRequestHeader('token', auth.token);},
+                        success: function(data) {
+                            if(data.status == 1) {
+                                toastr.success(data.message, 'نجاح');
+                            }
+                            else {
+                                toastr.error(data.message, 'خطأ');
+                            }
+                        },
+                        error: function(data) {
+
+                        },
+                    });
+                });
+
+
+                // $('body').on('click', '.participation-desc', function(){
+                //     let book_uid = $(this).attr('data-bookuid');
+                //     component.$router.replace({ path: '/bookings/' + book_uid });
+                // });
+
+                $.ajax({
+                    url: 'https://www.efadcar.com/api/v1/bookings',
+                    type: 'POST',
+                    beforeSend: function(xhr){xhr.setRequestHeader('token', auth.token);},
+                    success: function(data) {
+                        if(data.status == 1) {
+                            component.bookings = data.result;
+                        }
+                        else {
+
+                        }
+                    },
+                    error: function(data) {
+
+                    },
+                });
+
+
+                $.ajax({
+                    url: 'https://www.efadcar.com/api/v1/quickPayment',
+                    type: 'POST',
+                    beforeSend: function(xhr){xhr.setRequestHeader('token', auth.token);},
+                    success: function(data) {
+                        if(data.status == 1) {
+                            component.quickPayment = data.result;
+                        }
+                        else {
+
+                        }
+                    },
+                    error: function(data) {
+
+                    },
+                });
+
                 $('.submitCustom').click(function(){
                     let member_fname = $('#firstname').val();
                     let member_lname = $('#lastname').val();
                     let member_email = $('#email').val();
-                    let member_mobile = $('#mobile').val();
+                    let member_mobile = $('.mobile').val();
                     let country_uid = $('#country').find(':selected').val();
-                    let city_uid = $('#inputState').find(':selected').val();
+                    let city_uid = $('.selectlistv').children("option:selected").val();
                     $.ajax({
                         url: 'https://www.efadcar.com/api/v1/updateProfile',
                         type: 'POST',
@@ -175,18 +291,26 @@
                         },
                         beforeSend: function(xhr){xhr.setRequestHeader('token', auth.token);},
                         success: function(data) {
-                        console.log(data);
+                            console.log(data);
                             if(data.status == 1)
                             {
+                                auth.member_fname = member_fname;
+                                auth.member_lname = member_lname;
+                                auth.city_uid = city_uid;
+                                auth.member_mobile = member_mobile;
+                                auth.member_email = member_email;
+
+                                localStorage.setItem('auth', JSON.stringify(auth));
                                 toastr.success(data.message, 'نجاح');
                             }
                             else
                             {
-                                console.log(data);
                                 toastr.error(data.message, 'خطأ');
                             }
-                            
-                            $('.confirm-booking-section').waitMe('hide');
+                        },
+                        error: function(data) {
+                            console.log(data);
+                            toastr.error(data.responseJSON.message, 'خطأ');
                         },
                     });
                 });
@@ -392,7 +516,22 @@
             });
        },
        watch: {},
-       methods: {},
+       methods: {
+            fotmatCityDelivery: function(id){
+                if(id == 1){
+                    return "الرياض";
+                }
+                else if (id == 2){
+                    return "جدة";
+                }
+                else if (id == 3){
+                    return "المدينة المنورة";
+                }
+                else if (id == 4){
+                    return "الدمام";
+                }
+            },
+       },
    }
 </script>
 
@@ -803,5 +942,11 @@
     }
     .tab2, .tab3, .submitCustom{
         display: none;
+    }
+
+    .participation-desc-renew:hover{
+        background-color: white;
+        border-color: white;
+        color: #01355d;
     }
 </style>

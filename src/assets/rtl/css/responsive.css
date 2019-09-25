@@ -2,8 +2,23 @@
 	top: 82% !important; font-size: 13px;max-width: 280px;border: 1px solid #33b0f870;border-radius: 0.9rem;box-shadow: 1px 1px 2px 2px #00000017;
 }
 
+/*.whatsapp-png-btm{
+    margin-left: 44px !important;
+    bottom: 32px !important;
+    position: fixed !important;
+}
+*/
+
 .custom-footer-mar{
 	margin-bottom: 49px !important;
+}
+
+#toast-container{
+	left: 30px !important;
+}
+
+#mainMenuResp{
+	display: none !important;
 }
 
 .custom_title_text{
@@ -359,28 +374,25 @@
     	direction: ltr !important;
     }
 
-    .generalSearch::-webkit-input-placeholder{
-    	font-size: 8.5px;
+    .fa-search {
+	    margin-top: 27px !important;
+	    float: left !important;
+	    margin-left: -16px !important;
+	}
+	
+	.generalSearch::-webkit-input-placeholder{
+    	font-size: 9.8px;
     }
 
     .generalSearch{
-    	width: 91% !important;
+    	width: 100% !important;
     	float: right !important;
-    	margin-left: 6px !important;
-    	margin-top: -28px !important;
-    	margin-right: 22px;
     }
 
     .custom-show-filters{
     	margin-top: 5px !important;
     }
 
-
-    .fa-search{
-        margin-top: -9px !important;
-        float: left !important;
-    	margin-left: 1px !important;
-    }
 
     .carListBE{
     	margin-left: -29px !important;
@@ -455,9 +467,9 @@
 	}
 
 	.button-mobile {
-	    background: #ffffff !important;
-	    color: #01355d !important;
-	    border: 1px solid #01355d !important;
+	    background: #01355d !important;
+    	color: #fff !important;
+    	border: 1px solid #01355d !important;
 	}
 
 	.head-txt-resp{
@@ -490,20 +502,43 @@
 		margin: 0px 2px;
 	}
 
+	.secondLiTabNavRespo{
+		margin-right: -21px !important;
+	}
+
 }
 
 @media (min-width: 340px) and (max-width: 400px) {
+
+
+	.custom-footer-mar{
+		margin-bottom: 0px !important;
+	}
+	.fa-search {
+	    margin-top: 27px !important;
+	    float: left !important;
+	    margin-left: -16px !important;
+	}
+
+	.cars-many, .cars-branch{
+		width: 100% !important;
+	}
+
+	.pricetable{
+		margin-right: -27px !important;
+	}
+
 	.footerBottomMenu{
 		margin-right: -60px !important; 
 	}
 	.custom-payment-img{
-	    margin-right: -52px !important;
-	    margin-top: -29px !important;
-	    text-align: end !important;
+	    margin-right: -58px !important;
+    	margin-top: -42px !important;
+	    margin-bottom: 39px;
 	}
 
-	.payment-img{
-		width: 128% !important;
+	.payment-img {
+		width: 132% !important;
 	}
 
 	.payment-img li{
@@ -511,7 +546,7 @@
 	}
 	.footermenu{
 	    margin-right: -63px !important;
-	    font-size: 11px !important;
+	    font-size: 9px !important;
 	}
 	.custom-align{
 		text-align: unset !important;
@@ -521,7 +556,7 @@
 		margin-left: unset !important;
 	}
 	.footer-social{
-		margin-right: 7px !important;
+		margin-right: 16px !important;
 	}
 	.footer-social a {
 	    margin-left: 8px !important;
@@ -558,7 +593,7 @@
 	}
 	.nav-tabs {
 	    margin-top: 50px !important;
-	    margin-right: 10% !important
+	    margin-right: 5% !important
 	}
 
 	.custom-row-margin{
@@ -567,7 +602,7 @@
 	}
 
 	.pricing-switcher .car_btn label {
-		width: 80px !important;
+		width: 65px !important;
 	}
 
 	ul.pricetable li {
@@ -639,7 +674,13 @@
 	}
 
 	.show>.dropdown-menu {
-    	left: 49% !important;
+        left: 71% !important;
+    	margin-top: 48px !important;
+    	width: 55% !important;
+    }
+
+    .dropdown-item{
+    	margin: 0px !important;
     }
 
     .custom-fav-img{
@@ -649,29 +690,24 @@
 
     .navbar{
     	direction: ltr !important;
+    	height: 79px !important;
     }
 
     .generalSearch::-webkit-input-placeholder{
-    	font-size: 7.5px;
+    	font-size: 8.3px;
+    }
+
+    .customRespo{
+    	margin-right: 21px !important;
     }
 
     .generalSearch{
-    	width: 91% !important;
+    	width: 100% !important;
     	float: right !important;
-    	margin-left: 6px !important;
-    	margin-top: -28px !important;
-    	margin-right: 22px;
     }
 
     .custom-show-filters{
     	margin-top: 5px !important;
-    }
-
-
-    .fa-search{
-        margin-top: -11px !important;
-    	float: left !important;
-    	margin-left: -10px !important;
     }
 
     .carListBE{
@@ -747,9 +783,18 @@
 	}
 
 	.button-mobile {
-	    background: #ffffff !important;
-	    color: #01355d !important;
-	    border: 1px solid #01355d !important;
+	    background: #01355d !important;
+    	color: #fff !important;
+    	border: 1px solid #01355d !important;
+    	width: 47% !important;
+    	margin-left: -2px !important;
+	}
+	.fa.fa-filter{
+		margin-left: 7px !important;
+	}
+
+	#mainMenuResp{
+		display: contents !important;
 	}
 
 	.head-txt-resp{
@@ -782,18 +827,77 @@
 		margin: 0px 2px;
 	}
 
+	.whatsapp-logo-f{
+		width: 19% !important;
+	    float: left !important;
+	    margin-bottom: -15px !important;
+	    margin-left: -23px !important;
+	}
+
+
+	.button-mobile-fixed{
+		display: block !important;
+	}
+
+	.pagin{
+		width: 112% !important;
+	}
+
+	.whatsapp-div-parent{
+		left: 43px !important;
+	}
+
+
+	.whatsapp-div-new{
+	    bottom: 21px !important;
+	    width: 13% !important;
+	    left: 21px !important;
+	    position: fixed !important;
+	    z-index: 1000 !important;
+	}
+
+	.fa-chevron-left{
+		margin-left: -12px !important;
+	}
+
+	.fa-chevron-right{
+		margin-right: -20px !important;
+	}
+
+	.mob-gp{
+		width: 130px !important;
+		margin-left: 10px !important;
+	}
+
+	.mob-as{
+		width: 130px !important;
+	}
+
+	.logo{
+		width: 50% !important;
+		margin-left: 10px !important;
+	}
+
 }
 
 
 @media (max-width: 330px) and (min-width: 290px){
 
+	.thirdLiTabNavRespo{
+		margin-right: -21px !important;
+	}
+
 	.custom-footer-mar{
 		margin-bottom: 0px !important;
 	}
 	.fa-search {
-	    margin-top: -30px !important;
+	    margin-top: 27px !important;
 	    float: left !important;
-	    margin-left: -2px !important;
+	    margin-left: -16px !important;
+	}
+
+	.cars-many, .cars-branch{
+		width: 100% !important;
 	}
 
 	.pricetable{
@@ -807,23 +911,6 @@
 	    margin-right: -58px !important;
     	margin-top: -42px !important;
 	    margin-bottom: 39px;
-	}
-
-	.firstTabProfile{
-		margin-left: -10px !important;
-		margin-right: -10px !important;
-	}
-
-	.secondTabProfile{
-		margin-right: -1px !important;
-	}
-
-	.thirdTabProfile{
-		margin-right: -25px !important;
-	}
-
-	#tab1{
-		margin: 0px 0% !important;
 	}
 
 	.payment-img {
@@ -963,7 +1050,13 @@
 	}
 
 	.show>.dropdown-menu {
-    	left: 49% !important;
+        left: 71% !important;
+    	margin-top: 48px !important;
+    	width: 55% !important;
+    }
+
+    .dropdown-item{
+    	margin: 0px !important;
     }
 
     .custom-fav-img{
@@ -973,18 +1066,16 @@
 
     .navbar{
     	direction: ltr !important;
+    	height: 79px !important;
     }
 
     .generalSearch::-webkit-input-placeholder{
-    	font-size: 6.2px;
+    	font-size: 7.2px;
     }
 
     .generalSearch{
-    	width: 91% !important;
+    	width: 100% !important;
     	float: right !important;
-    	margin-left: 6px !important;
-    	margin-top: -28px !important;
-    	margin-right: 22px;
     }
 
     .custom-show-filters{
@@ -1064,9 +1155,18 @@
 	}
 
 	.button-mobile {
-	    background: #ffffff !important;
-	    color: #01355d !important;
-	    border: 1px solid #01355d !important;
+	    background: #01355d !important;
+    	color: #fff !important;
+    	border: 1px solid #01355d !important;
+    	width: 47% !important;
+    	margin-left: -2px !important;
+	}
+	.fa.fa-filter{
+		margin-left: 7px !important;
+	}
+
+	#mainMenuResp{
+		display: contents !important;
 	}
 
 	.head-txt-resp{
@@ -1098,4 +1198,85 @@
 	.carListItemResponse{
 		margin: 0px 2px;
 	}
+
+	.whatsapp-logo-f{
+		width: 19% !important;
+	    float: left !important;
+	    margin-bottom: -15px !important;
+	    margin-left: -23px !important;
+	}
+
+
+	.button-mobile-fixed{
+		display: block !important;
+	}
+
+	.pagin{
+		width: 112% !important;
+	}
+
+	.whatsapp-div-parent{
+		left: 43px !important;
+	}
+
+
+	.whatsapp-div-new{
+	    bottom: 21px !important;
+	    width: 15% !important;
+	    left: 21px !important;
+	    position: fixed !important;
+	    z-index: 1000 !important;
+	}
+
+	.fa-chevron-left{
+		margin-left: -12px !important;
+	}
+
+	.fa-chevron-right{
+		margin-right: -20px !important;
+	}
+
+	.mob-gp{
+		width: 130px !important;
+		margin-left: 10px !important;
+	}
+
+	.mob-as{
+		width: 130px !important;
+	}
+
+	.logo{
+		width: 50% !important;
+		margin-left: 10px !important;
+	}
+}
+
+#launcher{
+	bottom: 8px !important;
+}
+
+.button-mobile-container {
+    width: 100% !important;
+    z-index: 1000000000;
+}
+
+.searchViewBtn{
+	margin-bottom: 5px !important;
+}
+
+.whatsapp-logo-f{
+	width: 5%;float: left;margin-bottom: -16px;
+}
+
+.whatsapp-div-parent
+{
+	position: fixed;bottom: 30px;left: 30px;z-index: 600;
+}
+
+.whatsapp-div-new{
+    bottom: 21px;
+    width: 3%;
+    left: 21px;
+    position: fixed;
+    z-index: 1000;
 }
