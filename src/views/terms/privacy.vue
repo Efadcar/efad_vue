@@ -44,7 +44,8 @@
         computed: {},
         created() {
             const component = this;
-
+            document.title = 'إفاد | سياسة الخصوصية';
+            $('html, body').animate({scrollTop:0}, 'slow');
             $.ajax({
                 type: 'GET',
                 url: 'https://www.efadcar.com/api/v1/page?link=privacy-policy',

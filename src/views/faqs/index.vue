@@ -59,6 +59,8 @@
         mounted() {
             let component = this;
             $(document).ready(function(){
+                document.title = 'إفاد | الاسئلة المتكررة';
+
                 $('body').on('click', '.trigger', function(){
                     $(this).next().show();
                     if ($(this).next().hasClass('hide')){
@@ -86,6 +88,8 @@
 
                     },
                 });
+
+                $('html, body').animate({scrollTop:0}, 'slow');
             });
         },
         watch: {},

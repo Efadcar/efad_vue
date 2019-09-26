@@ -45,6 +45,9 @@
         created() {
             const component = this;
 
+            document.title = 'إفاد | شروط الاستخدام';
+            $('html, body').animate({scrollTop:0}, 'slow');
+
             $.ajax({
                 type: 'GET',
                 url: 'https://www.efadcar.com/api/v1/page?link=terms-of-use',

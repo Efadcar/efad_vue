@@ -44,7 +44,7 @@
                 <span class="labelh py-2" >عرض السعر</span>
                 <div col-lg-12>
                     من
-                    &nbsp;<input style="background-color: #f0f0f0;color: #01355d;" type="text" name="week1" value="0" id="priceTo" class="item8000 financialValueWeekly" disabled>&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;<input style="background-color: #f0f0f0;color: #01355d;" type="text" name="week1" value="1" id="priceTo" class="item8000 financialValueWeekly" disabled>&nbsp;&nbsp;&nbsp;&nbsp;
                     إلى
                     &nbsp;<input style="background-color: #f0f0f0;color: #01355d;" type="text" name="day1"  value="100000" id="priceFrom" class="item2000 financialValueDaily" disabled >
                 </div>
@@ -209,6 +209,7 @@
                     'max': 2020, 
                 },
                 isHidden: false,
+                maxPriceRangeSlider: 3000,
             };
         },
         computed: {},
@@ -285,14 +286,14 @@
                 var priceSlider = document.getElementById('nouislider-slider-cash-range');
 
                 noUiSlider.create(priceSlider, {
-                    start: [0, 100000],
+                    start: [1, 100000],
                     connect: true,
                     range: {
-                        'min': 0,
+                        'min': 1,
                         'max': 100000
                     },
                     direction: 'rtl',
-                    step: 100,
+                    step: 10,
                     connect: true,
                     behaviour: 'tap-drag',
                     tooltips: false,
@@ -300,6 +301,58 @@
                     // Show a scale with the slider
 
                 });
+
+                // $('.subscriptionValueDuration').change(function(){
+                //     if (component.price_period == 'day'){
+                //         priceSlider.noUiSlider.updateOptions({
+                //             start: [1, 3000],
+                //             range: {
+                //                 'min': 1,
+                //                 'max': 3000,
+                //             },
+                //             step: 10,
+                //             direction: 'rtl',
+                //             connect: true,
+                //             behaviour: 'tap-drag',
+                //             tooltips: false,
+
+                //         });
+
+                //         $('#priceFrom').val(3000);
+                //     }
+                //     else if (component.price_period == 'week'){
+                //         priceSlider.noUiSlider.updateOptions({
+                //             start: [1, 15000],
+                //             range: {
+                //                 'min': 1,
+                //                 'max': 15000,
+                //             },
+                //             step: 100,
+                //             direction: 'rtl',
+                //             connect: true,
+                //             behaviour: 'tap-drag',
+                //             tooltips: false,
+
+                //         });
+
+                //         $('#priceFrom').val(15000);
+                //     }
+                //     else if (component.price_period == 'month'){
+                //         priceSlider.noUiSlider.updateOptions({
+                //             start: [1, 100000],
+                //             range: {
+                //                 'min': 1,
+                //                 'max': 100000,
+                //             },
+                //             step: 400,
+                //             direction: 'rtl',
+                //             connect: true,
+                //             behaviour: 'tap-drag',
+                //             tooltips: false,
+                //         });
+                //         $('#priceFrom').val(100000);
+                //     }
+                // });
 
                 priceSlider.noUiSlider.on('change', function( values, handle ) {
                     let priceSilderValue = priceSlider.noUiSlider.get();

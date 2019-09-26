@@ -74,6 +74,8 @@
         },
         computed: {},
         created() {
+            document.title = 'إفاد | الفروع';
+            $('html, body').animate({scrollTop:0}, 'slow');
         },
         mounted() {},
         watch: {},
