@@ -667,10 +667,10 @@
 
                 $('.booking_confirmation').click( function() {
                     $('.booking_confirmation').prop('disabled', true);
-                    if (component.urlStartDateCalendar){alert('extend');
+                    if (component.urlStartDateCalendar){
                         extendBooking();
                     }
-                    else{alert('confirm');
+                    else{
                         confirmBooking();
                     }
                 });
