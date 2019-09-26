@@ -97,4 +97,10 @@
     .hide{
         display: none !important;
     }
+    /*@media (max-width: 400px) and (min-width: 340px){
+        .cd-faq-question {
+            width: 117% !important;
+            margin-right: -25px !important;
+        }
+    }*/
 </style>
