@@ -11,15 +11,15 @@
                             <div class="col-sm-4 ">
                                 <div class="carname d-flex ">
                                     <h2>
-                                        <span>{{result.cb_uid}} </span> 
+                                        <span>{{result.cb_uid}} </span>
                                         <span>{{result.cm_uid}} </span>
                                         <span>{{result.car_model_year}}</span>
                                     </h2>
                                 </div>
                                 <div class=" align-items-center mt-10 custom-margin-map">
-                                    <div class="text-left "> 
-                                        <span id="daily-rate" class="value">{{result.car_daily_price}}</span> 
-                                        <span class="duration">ريال في اليوم</span> 
+                                    <div class="text-left ">
+                                        <span id="daily-rate" class="value">{{result.car_daily_price}}</span>
+                                        <span class="duration">ريال في اليوم</span>
                                     </div>
                                     <br><br>
                                     <div class="custom-slider-mob custom-margin-car-slider">
@@ -33,7 +33,7 @@
                                                 <div v-for="(imgCarR, index) in result.album" v-if="index != 0" class="carousel-item">
                                                   <img  class="d-block w-100" :src="imgCarR" alt="First slide">
                                                 </div>
-                                                
+
                                               </div>
                                               <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev" >
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -44,16 +44,16 @@
                                                 <span class="sr-only">Next</span>
                                               </a>
                                             </div>
-                                            
-                                            
-                                            
+
+
+
                                             </div>
                                     </div>
                                     <ul class="cartype">
                                         <li>
                                             <div class="cartype-logo"> <img alt="gear" src="../../assets/rtl/images/gear-icon.png" /> </div>
-                                            <span v-show="result.car_transmission == 'auto'">أوتوماتيك</span> 
-                                            <span v-show="result.car_transmission == 'manual'">عادية</span> 
+                                            <span v-show="result.car_transmission == 'auto'">أوتوماتيك</span>
+                                            <span v-show="result.car_transmission == 'manual'">عادية</span>
                                         </li>
                                         <li>
                                             <div class="cartype-logo"> <img alt="bag" src="../../assets/rtl/images/bag-icon.png" /> </div>
@@ -67,7 +67,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                
+
                             </div>
                             <div class="col-sm-7 ml-5 custom-des-web-slider custom-margin-car-slider">
                                 <div class="price-car text-right"> </div>
@@ -79,7 +79,7 @@
                                         </div>
                                         <div v-for="(imgCarR, index) in result.album" v-if="index != 0" class="carousel-item">
                                           <img  class="d-block w-100" :src="imgCarR" alt="First slide">
-                                        </div>                        
+                                        </div>
                                       </div>
                                       <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev" >
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -90,17 +90,17 @@
                                         <span class="sr-only">Next</span>
                                       </a>
                                     </div>
-                                    
-                                    
+
+
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="cd-faq-items" style="margin-bottom: 15px;">
                         <ul class="cd-faq-group">
 
-                            <li class="cd-faq-question question1" style="border: 1px solid #d1d1d1;"> 
+                            <li class="cd-faq-question question1" style="border: 1px solid #d1d1d1;">
                                 <a class="cd-faq-trigger trigger1" href="#0">مميزات السيارة</a>
                                 <div class="cd-faq-content">
                                     <div class="row">
@@ -115,13 +115,13 @@
                                         <div class="col-sm-3">
                                             <h5>نظام الدفع</h5>
                                             <span>
-                                            دفع أمامي                               
+                                            دفع أمامي
                                             </span>
                                         </div>
                                         <div class="col-sm-3">
                                             <h5>اللون الخارجي</h5>
                                             <span>
-                                                {{result.car_color}}                                
+                                                {{result.car_color}}
                                             </span>
                                         </div>
                                     </div>
@@ -157,7 +157,7 @@
                                         <input type="hidden" name="member_uid" value="<?= $this->session->userdata('member_uid') ?>" />
                                     </form>
                                 </div>
-                                
+
                                 <div class="col-sm-4 text-center ">
                                     <div class="form-group custom-rec-city-mob">
                                         <label style="float: right;">اختر مدينة أستلام السيارة</label>
@@ -165,27 +165,27 @@
 
                                             <select id="inputStatebook" class="form-control width100p inputStatebookMob" name="delivery_city_uid" required>
                                                 <option value="0">أختار مدينة</option>
-                                                                    
-                                    
+
+
                                                 <option value="4">الدمام</option>
-                                                
-                                                                                
-                                                
+
+
+
                                                 <option value="1">الرياض</option>
-                                                
-                                                                                
-                                                
+
+
+
                                                 <option value="3">المدينة المنورة</option>
-                                                
-                                                                                
-                                                
+
+
+
                                                 <option value="2">جدة</option>
 
                                             </select>
                                         </div>
                                     </div>
                                     <h3 class="mb-0 pr-2">عدد أيام الاشترك</h3>
-                                    <span class="value total-days">0</span> 
+                                    <span class="value total-days">0</span>
                                 </div>
                             </div>
                         </div>
@@ -198,20 +198,20 @@
 
                                             <select id="inputStatebook" class="form-control width100p inputStatebookWeb" name="delivery_city_uid" required>
                                                 <option value="0">أختار مدينة</option>
-                                                                    
-                                    
+
+
                                                 <option value="4">الدمام</option>
-                                                
-                                                                                
-                                                
+
+
+
                                                 <option value="1">الرياض</option>
-                                                
-                                                                                
-                                                
+
+
+
                                                 <option value="3">المدينة المنورة</option>
-                                                
-                                                                                
-                                                
+
+
+
                                                 <option value="2">جدة</option>
                                             </select>
                                         </div>
@@ -221,7 +221,7 @@
                                 </div>
                                 <div class="col-sm-4 text-center ">
                                     <h3 class="mb-0 pr-2">المبلغ الإجمالي</h3>
-                                    <span class="value total-price">0</span> <span id="currency">ريال</span> 
+                                    <span class="value total-price">0</span> <span id="currency">ريال</span>
                                 </div>
                             </div>
 
@@ -233,9 +233,9 @@
                                     <button class="btn btn-default  mb-2" id="paynow" >استمرار</button>
                                 </div>
                             </div>
-                        </form>             
+                        </form>
                     </div>
-                    
+
                 </div>
             </section>
 
@@ -243,7 +243,7 @@
         </div>
         <div class="subscribe-booking-section">
             <section>
-                <div class="row ml-0 mr-0" style="margin-top: 120px;">    
+                <div class="row ml-0 mr-0" style="margin-top: 120px;">
                     <div class="col-12">
                         <div class="col-lg-12 text-center pb-2">
                             <h2>اختر خطة وفئة العضوية</h2>
@@ -266,7 +266,7 @@
             </section>
 
             <section>
-                <div class="row ml-0 mr-0 membership-row">    
+                <div class="row ml-0 mr-0 membership-row">
                     <div class="col-md-3 membership-column">
                         <div class="membership-box" style="background-color: #ff6d00;"></div>
 
@@ -389,14 +389,14 @@
                             <div class="col-sm-7">
                                 <div class="carnamePay ml-2 text-left">
                                     <h3>نوع السيارة : <span>{{result.cb_uid}} </span><span>{{result.cm_uid}}</span><span>{{result.car_model_year}}</span></h3>
-                                   
+
                                 </div>
-                                
+
                                 <ul class="cartype">
                                     <li style="width: 24%">
                                         <div class="cartype-logo"> <img alt="gear" src="../../assets/rtl/images/gear-icon.png" /> </div>
-                                        <span v-show="result.car_transmission == 'auto'">أوتوماتيك</span> 
-                                        <span v-show="result.car_transmission == 'manual'">عادية</span> 
+                                        <span v-show="result.car_transmission == 'auto'">أوتوماتيك</span>
+                                        <span v-show="result.car_transmission == 'manual'">عادية</span>
                                     </li>
                                     <li style="width: 24%">
                                         <div class="cartype-logo"> <img alt="bag" src="../../assets/rtl/images/bag-icon.png" /> </div>
@@ -411,10 +411,10 @@
                                 </ul>
                                 <br>
                                 <ul class="cartype">
-                                        
+
                                     <li style="width: 24%">
                                         <div class="cartype-logo"> مدة الاشتراك </div>
-                                        <span >{{bookingResult.days}} ايام</span> 
+                                        <span >{{bookingResult.days}} ايام</span>
                                     </li>
                                     <li style="width: 24%">
                                         <div class="cartype-logo"> تاريخ الاستلام  </div>
@@ -429,7 +429,7 @@
                                 </ul>
                             </div>
                             <div class="col-sm-4 custom-margin-car-slider">
-                                
+
                                 <div class="car-img">
                                     <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
                                       <div class="carousel-inner">
@@ -449,16 +449,16 @@
                                         <span class="sr-only">Next</span>
                                       </a>
                                     </div>
-                                    
-                                    
-                                    
+
+
+
                                     <!--<img src="<?= base_url().ALBUMS_IMAGES.$car->main_image; ?>" class="img-fluid" /> --> </div>
                             </div>
                         </div>
                     </div>
                     <!-- reservation form -->
 
-                        
+
                     <div class="reservation-form bg-secondary mt-2" style="border-radius: 5px 5px 5px 5px;">
 
                         <form id="confirm-book">
@@ -474,7 +474,7 @@
                                     <h3>تفاصيل الفاتورة</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <!-- 
+                                    <!--
                                     <div class="custom-control custom-radio col-sm-12 ml-4">
                                         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="visa" checked>
                                         <label class="custom-control-label" for="customRadio1">
@@ -514,14 +514,14 @@
                                         </label>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-sm-6">
                                     <div class=" col-md-12  col-sm-12 mx-sm-auto ">
                                         <div class="row">
 
                                             <table class="table mb-5">
                                                 <tbody>
-                                                    <!-- 
+                                                    <!--
                                                     <tr>
                                                         <td class="text-left">  سعر الحجز الاساسي  لليوم
                                                         </td>
@@ -533,7 +533,7 @@
                                                         </td>
                                                         <td class="text-right"><span>{{bookingResult.total_fees}}</span> ر.س.</td>
                                                     </tr>
-                                                    
+
                                                     <tr>
                                                         <td class="text-left">ضريبة القيمه المضافة 5% للخدمة
                                                         </td>
@@ -553,7 +553,7 @@
 
                                             </table>
                                             <table class="table mb-0">
-                                                
+
                                                 <tfoot>
                                                     <tr>
                                                         <td class="text-left ">
@@ -564,17 +564,17 @@
                                                         </td>
                                                     </tr>
                                                 </tfoot>
-                                            </table>                        
+                                            </table>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center mt-4 ">
-                                        <p class="" style="color: #000">بالضغط على " تأكيد الحجز " أنت توافق على <router-link to="/term-of-use"target="_blank" style="text-decoration: underline; color: #01355d">شروط الاستخدام </router-link> و <router-link to="/privacy-policy" target="_blank" style="text-decoration: underline; color: #01355d">سياسة الخصوصية</router-link></p>
+                                        <p class="" style="color: #000">بالضغط على " تأكيد الحجز " أنت توافق على <router-link to="/terms-of-use"target="_blank" style="text-decoration: underline; color: #01355d">شروط الاستخدام </router-link> و <router-link to="/privacy-policy" target="_blank" style="text-decoration: underline; color: #01355d">سياسة الخصوصية</router-link></p>
                                     </div>
                                     <div class="col-sm-12 text-center ">
                                         <button class="btn btn-default pl-4 pr-4 mb-2 mt-4 booking_confirmation" id="paynow">تأكيد الحجز</button>
                                     </div>
                                 </div>
-                                
+
                             </div>
 
                             <!-- card -->
@@ -655,16 +655,16 @@
                     });
                 }
 
-            
-            
-            
+
+
+
                 $('#confirm-book').submit(function(e){
                     e.preventDefault();
                 });
-            
+
                 $('#paymentCard').hide();
                 $('.cash-fees-tr').hide();
-                
+
                 $('.booking_confirmation').click( function() {
                     $('.booking_confirmation').prop('disabled', true);
                     if (component.urlStartDateCalendar){alert('extend');
@@ -674,7 +674,7 @@
                         confirmBooking();
                     }
                 });
-            
+
                 function extendBooking()
                 {
                     run_waitMe($('.confirm-booking-section'), 1, 'ios');
@@ -704,12 +704,12 @@
                             {
                                 toastr.error(data.message, 'خطأ');
                             }
-                            
+
                             $('.confirm-booking-section').waitMe('hide');
                             component.$router.replace({ path: '/profile#tab2' });
                         },
                     });
-                }   
+                }
 
 
                 function confirmBooking()
@@ -740,24 +740,24 @@
                             {
                                 toastr.error(data.message, 'خطأ');
                             }
-                            
+
                             $('.confirm-booking-section').waitMe('hide');
                             component.$router.replace({ path: '/profile#tab2' });
                         },
                     });
-                }   
+                }
                 $(function () {
                     $('[data-toggle="tooltip"]').tooltip()
                 });
-                
-                $('input[type=radio][name="customRadio"]').change(function() {                            
+
+                $('input[type=radio][name="customRadio"]').change(function() {
                     if (this.value == 'visa') {
                         $('#paymentCard').show();
                         $('#transferInfo').hide();
                         $('.cash-fees-tr').hide();
                         $('.total-price').html(component.bookingResult.total_fees + component.bookingResult.total_fees * (5 / 100));
                         $('#paynow').html('دفع');
-                        
+
                     }
                     else if (this.value == 'cash') {
                         $('#paymentCard').hide();
@@ -782,7 +782,7 @@
                     data: this.filters,
                     success:function(data){
                         component.result = data.result;
-                        
+
                     },
                     error: function(data){
 
@@ -805,11 +805,11 @@
                         faqsCategoriesContainer = $('.cd-faq-categories'),
                         faqsCategories = faqsCategoriesContainer.find('a'),
                         closeFaqsContainer = $('.cd-close-panel');
-                    
+
 
                     //close faq lateral panel - mobile only
                     $('body').bind('click touchstart', function(event){
-                        if( $(event.target).is('body.cd-overlay') || $(event.target).is('.cd-close-panel')) { 
+                        if( $(event.target).is('body.cd-overlay') || $(event.target).is('.cd-close-panel')) {
                             closePanel(event);
                         }
                     });
@@ -823,7 +823,7 @@
                     //update category sidebar while scrolling
                     $(window).on('scroll', function(){
                         if ( $(window).width() > MqL ) {
-                            (!window.requestAnimationFrame) ? updateCategory() : window.requestAnimationFrame(updateCategory); 
+                            (!window.requestAnimationFrame) ? updateCategory() : window.requestAnimationFrame(updateCategory);
                         }
                     });
 
@@ -836,7 +836,7 @@
                                 '-o-transform': 'translateY(0)',
                                 'transform': 'translateY(0)',
                             });
-                        }  
+                        }
                     });
 
                     function updateCategory(){
@@ -869,7 +869,7 @@
                         if (inputStatebookMob > 0){
                             $('.inputStatebookWeb').val(inputStatebookMob);
                         }
-                        
+
                         $('.delivery_city_name_span').html($('.inputStatebookMob').children('option:selected').text());
 
                         $('#tax-total-perc').html(component.bookingResult.total_fees * (5 / 100));
@@ -894,10 +894,10 @@
                                 $('.confirm-booking-section').show();
                                 window.scrollTo(0, 0);
                             }
-                        }                       
+                        }
                     });
 
-                    
+
                         $(function () {
                             $('.switchPanelButton').click(function (event) {
                                 event.preventDefault();
@@ -907,24 +907,24 @@
                                 $('#' + panelid).show();
                             });
                         });
-        
+
                         $('.print').click(function(){
                             $('.demo').printThis({
-                                importCSS: true,  
+                                importCSS: true,
                                 header: null,               // prefix to html
                                 footer: null,
                                 footer: $('.hidden-print-header-content'),
-                                removeInline: false, 
+                                removeInline: false,
                                 });
                         });
-                    
-                    
+
+
                         var dataSet;
                         $('.toggle').click(function () {
                             $('#target').toggle('slow');
                         });
 
-                        
+
                         var date_start = new Date();
                         var date_end = new Date();
                         var date_end = date_end.setMonth(date_end.getMonth() + 1);
@@ -952,14 +952,14 @@
                             switchOnClick: true,
                             lang: 'en'
                         });
-                        
+
                         $('#date-end').prop( 'disabled', true );
-                        
+
 
 
                         $('#date-start').bootstrapMaterialDatePicker
                         ({
-                            weekStart: 6, 
+                            weekStart: 6,
                             format: 'DD-MMMM-YYYY',
                             disabledDays: [5,6],
                             minDate : date_start,
@@ -968,11 +968,11 @@
                             lang: 'en'
                         });
 
-                        
+
                         $(function () {
                             $('[data-toggle="tooltip"]').tooltip()
                         });
-                        
+
                         var timeoutId;
                         $('#date-start').on('input propertychange change', function() {
 
@@ -989,11 +989,11 @@
                             }
                             else{
                                 var newDate = new Date(datee);
-                                newDate.setDate(newDate.getDate() + 7);    
+                                newDate.setDate(newDate.getDate() + 7);
                             }
 
                             $('#date-start').bootstrapMaterialDatePicker().val(datee);
-                            
+
                             $('#date-end').bootstrapMaterialDatePicker('setMinDate', newDate);
 
                             $('.total-days').html('0');
@@ -1003,7 +1003,7 @@
                         if (component.urlStartDateCalendar){
                             $('#date-start').trigger('change');
                         }
-                        
+
                         $('#date-end').on('input propertychange change', function() {
 
                             var datee = $('#date-start').bootstrapMaterialDatePicker().val();
@@ -1020,7 +1020,7 @@
                             }
                             else{
                                 var newDate = new Date(datee);
-                                newDate.setDate(newDate.getDate() + 7);    
+                                newDate.setDate(newDate.getDate() + 7);
                             }
                             $('#date-end').bootstrapMaterialDatePicker('setMinDate', newDate);
                             $.ajax({
@@ -1033,10 +1033,10 @@
                                 },
                                 success:function(data){
                                     component.bookingResult = data.result;
-                                    
+
                                     $('.total-days').html(component.bookingResult.days);
                                     $('.total-price').html(component.bookingResult.total_fees);
-                                    
+
                                 },
                                 error: function(data){
 
@@ -1081,13 +1081,13 @@
                                     dataSet = data;
                                     console.log(data);
                                     // Now show them we saved and when we did
-                                    if(data.status == 1){                                       
+                                    if(data.status == 1){
                                         // set UI values
                                         $('.total-price').html(data.total_fees_after_tax);
                                         $('.total-days').html(data.days);
                                         $('#daily-rate').html(data.daily_rate_after_discount);
                                     }
-                                    
+
                                 },
                             });
                         }
@@ -1179,7 +1179,7 @@
     }
 
     .items-custom{
-        
+
     }
 
 
@@ -1208,7 +1208,7 @@
     .card-body{
         text-align: start;
     }
-    
+
     #inputStatebook{
         -webkit-appearance: none !important;
     }
@@ -1218,7 +1218,7 @@
     }
     @media (max-width: 330px) and (min-width: 290px){
         .membership-column{
-            max-width: 100% !important;   
+            max-width: 100% !important;
             margin: 10px;
         }
     }
