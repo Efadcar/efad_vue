@@ -99,6 +99,7 @@
         computed: {},
         created() {
             const component = this;
+            // console.log('route', component.$router.params.offset);
 
             this.$bus.$on('query_changed', function(data){
                 component.filters.search_text = data;
@@ -132,7 +133,13 @@
             this.fetchResults();
         },
         mounted() {
+            let component = this;
             document.title = 'إفاد | اكتشف';
+            var urlParams = new URLSearchParams(location.search);
+            if (urlParams.get('offset')){
+                component.filters.offset = parseInt(urlParams.get('offset'));
+                component.fetchResults("only_pagination");
+            }
         },
         watch: {},
         methods: {
@@ -185,8 +192,8 @@
                         // console.log(component.results);
                         $('body').waitMe('hide');
                         $([document.documentElement, document.body]).animate({
-                            scrollTop: $('.generalSearch').offset().top
-                        }, 1600);
+                            scrollTop: $('body').offset().top
+                        }, 100);
                         component.reseting = false;
                     },
                     error: function(data){
@@ -198,8 +205,8 @@
                         component.results = data.responseJSON;
                         $('body').waitMe('hide');
                         $([document.documentElement, document.body]).animate({
-                            scrollTop: $('.generalSearch').offset().top
-                        }, 1600);
+                            scrollTop: $('body').offset().top
+                        }, 100);
                         component.reseting = false;
                     }
                 });

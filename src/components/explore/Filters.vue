@@ -8,7 +8,7 @@
                 <div class="button-mobile searchViewBtn">عرض</div>
             </div>
             <h4><i class="fa fa-filter"></i> بحث متقدم </h4>
-            <div class="col-md-12 col-sm-12 pt-2">
+            <!-- <div class="col-md-12 col-sm-12 pt-2">
                 <span class="labelh py-2">مدة الاشتراك</span>
                 <div class="row">
                     <div class="col-lg-12">
@@ -24,16 +24,16 @@
                         </label>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-12 col-sm-12 pt-2">
-                <span class="labelh py-2">عرض قيمة الإشتراك لمدة</span>
+                <span class="labelh py-2">عرض قيمة الإيجار لمدة</span>
                 <div class="car_btn car-y">
                     <p class="fieldset">
-                        <input type="radio" name="day" data-value="7" v-model="price_period" data-period="day" value="day"  id="day" class=" subscriptionValueDuration">
+                        <input type="radio" name="day" v-on:click="changePriceSliderRange($event)" data-value="7" v-model="price_period" data-period="day" value="day"  id="day" class=" subscriptionValueDuration">
                         <label for="day" class="day">يوم</label>
-                        <input type="radio" name="year1" data-value="7" v-model="price_period" data-period="week" value="week"  id="week1" class=" subscriptionValueDuration">
+                        <input type="radio" name="year1" v-on:click="changePriceSliderRange($event)" data-value="7" v-model="price_period" data-period="week" value="week"  id="week1" class=" subscriptionValueDuration">
                         <label for="week1" class="week">أسبوع</label>
-                        <input type="radio" name="year1" data-value="30" v-model="price_period" data-period="month" value="month" id="month1" class=" subscriptionValueDuration" >
+                        <input type="radio" name="year1" v-on:click="changePriceSliderRange($event)" data-value="30" v-model="price_period" data-period="month" value="month" id="month1" class=" subscriptionValueDuration" >
                         <label for="month1" class="month"> شهر</label>
                         <!-- <input type="radio" name="year1" data-value="365" v-model="price_period" data-period="year" value="year"  id="year1" class=" subscriptionValueDuration" >
                         <label for="year1" class="year">سنة</label> -->
@@ -46,12 +46,12 @@
                     من
                     &nbsp;<input style="background-color: #f0f0f0;color: #01355d;" type="text" name="week1" value="1" id="priceTo" class="item8000 financialValueWeekly" disabled>&nbsp;&nbsp;&nbsp;&nbsp;
                     إلى
-                    &nbsp;<input style="background-color: #f0f0f0;color: #01355d;" type="text" name="day1"  value="100000" id="priceFrom" class="item2000 financialValueDaily" disabled >
+                    &nbsp;<input style="background-color: #f0f0f0;color: #01355d;" type="text" name="day1"  value="3000" id="priceFrom" class="item2000 financialValueDaily" disabled >
                 </div>
                 <div id="nouislider-slider-cash-range" class="mt-2"></div>
             </div>
             <div class="col-md-12 col-sm-12 pt-2">
-                <span class="labelh py-2">ترتيب</span>
+                <span class="labelh py-2">ترتيب السعر</span>
                 <div class="row">
                     <div class="col-lg-12">
                         <label class="customButton">من الأقل قيمة إلى الأعلى
@@ -210,6 +210,9 @@
                 },
                 isHidden: false,
                 maxPriceRangeSlider: 3000,
+                priceSliderMinRange: 1,
+                priceSliderMaxRange: 1000,
+                priceSliderStep: 10,
             };
         },
         computed: {},
@@ -286,14 +289,14 @@
                 var priceSlider = document.getElementById('nouislider-slider-cash-range');
 
                 noUiSlider.create(priceSlider, {
-                    start: [1, 100000],
+                    start: [component.priceSliderMinRange, component.priceSliderMaxRange],
                     connect: true,
                     range: {
-                        'min': 1,
-                        'max': 100000
+                        'min': component.priceSliderMinRange,
+                        'max': component.priceSliderMaxRange
                     },
                     direction: 'rtl',
-                    step: 10,
+                    step: component.priceSliderStep,
                     connect: true,
                     behaviour: 'tap-drag',
                     tooltips: false,
@@ -301,58 +304,6 @@
                     // Show a scale with the slider
 
                 });
-
-                // $('.subscriptionValueDuration').change(function(){
-                //     if (component.price_period == 'day'){
-                //         priceSlider.noUiSlider.updateOptions({
-                //             start: [1, 3000],
-                //             range: {
-                //                 'min': 1,
-                //                 'max': 3000,
-                //             },
-                //             step: 10,
-                //             direction: 'rtl',
-                //             connect: true,
-                //             behaviour: 'tap-drag',
-                //             tooltips: false,
-
-                //         });
-
-                //         $('#priceFrom').val(3000);
-                //     }
-                //     else if (component.price_period == 'week'){
-                //         priceSlider.noUiSlider.updateOptions({
-                //             start: [1, 15000],
-                //             range: {
-                //                 'min': 1,
-                //                 'max': 15000,
-                //             },
-                //             step: 100,
-                //             direction: 'rtl',
-                //             connect: true,
-                //             behaviour: 'tap-drag',
-                //             tooltips: false,
-
-                //         });
-
-                //         $('#priceFrom').val(15000);
-                //     }
-                //     else if (component.price_period == 'month'){
-                //         priceSlider.noUiSlider.updateOptions({
-                //             start: [1, 100000],
-                //             range: {
-                //                 'min': 1,
-                //                 'max': 100000,
-                //             },
-                //             step: 400,
-                //             direction: 'rtl',
-                //             connect: true,
-                //             behaviour: 'tap-drag',
-                //             tooltips: false,
-                //         });
-                //         $('#priceFrom').val(100000);
-                //     }
-                // });
 
                 priceSlider.noUiSlider.on('change', function( values, handle ) {
                     let priceSilderValue = priceSlider.noUiSlider.get();
@@ -534,6 +485,145 @@
             },
             showFiltersBlock: function(){
                 this.isHidden = !this.isHidden;
+            },
+
+            changePriceSliderRange: function(event){
+                let component = this;
+                let period = event.target.value;
+                if (period == "day"){
+                    $('.financialValueWeekly').val(1);
+                    $('.financialValueDaily').val(1000);
+                    var priceSlider = document.getElementById('nouislider-slider-cash-range');
+                    priceSlider.noUiSlider.destroy();
+
+                    noUiSlider.create(priceSlider, {
+                        start: [1, 1000],
+                        connect: true,
+                        range: {
+                            'min': 1,
+                            'max': 1000
+                        },
+                        direction: 'rtl',
+                        step: 10,
+                        connect: true,
+                        behaviour: 'tap-drag',
+                        tooltips: false,
+
+                        // Show a scale with the slider
+
+                    });
+
+                    priceSlider.noUiSlider.on('change', function( values, handle ) {
+                        let priceSilderValue = priceSlider.noUiSlider.get();
+                        let value = priceSilderValue.toString().split(",");
+                        $('#priceFrom').val(Math.trunc( value[1] ));
+                        $('#priceTo').val(Math.trunc( value[0] ));
+                        if(component.price_from != Math.trunc( value[0] )){
+                            component.price_from = Math.trunc( value[0] );
+                        }
+
+                        if(component.price_to != Math.trunc( value[1] )){
+                            component.price_to = Math.trunc( value[1] );
+                        }
+                    });
+
+                    priceSlider.noUiSlider.on('update', function( values, handle ) {
+                        let priceSilderValue = priceSlider.noUiSlider.get();
+                        let value = priceSilderValue.toString().split(",");
+                        $('#priceFrom').val(Math.trunc( value[1] ));
+                        $('#priceTo').val(Math.trunc( value[0] ));
+                    });
+                }
+                else if (period == "week"){
+                    $('.financialValueWeekly').val(200);
+                    $('.financialValueDaily').val(20000);
+                    var priceSlider = document.getElementById('nouislider-slider-cash-range');
+                    priceSlider.noUiSlider.destroy();
+
+                    noUiSlider.create(priceSlider, {
+                        start: [200, 20000],
+                        connect: true,
+                        range: {
+                            'min': 200,
+                            'max': 20000
+                        },
+                        direction: 'rtl',
+                        step: 100,
+                        connect: true,
+                        behaviour: 'tap-drag',
+                        tooltips: false,
+
+                        // Show a scale with the slider
+
+                    });
+
+                    priceSlider.noUiSlider.on('change', function( values, handle ) {
+                        let priceSilderValue = priceSlider.noUiSlider.get();
+                        let value = priceSilderValue.toString().split(",");
+                        $('#priceFrom').val(Math.trunc( value[1] ));
+                        $('#priceTo').val(Math.trunc( value[0] ));
+                        if(component.price_from != Math.trunc( value[0] )){
+                            component.price_from = Math.trunc( value[0] );
+                        }
+
+                        if(component.price_to != Math.trunc( value[1] )){
+                            component.price_to = Math.trunc( value[1] );
+                        }
+                    });
+
+                    priceSlider.noUiSlider.on('update', function( values, handle ) {
+                        let priceSilderValue = priceSlider.noUiSlider.get();
+                        let value = priceSilderValue.toString().split(",");
+                        $('#priceFrom').val(Math.trunc( value[1] ));
+                        $('#priceTo').val(Math.trunc( value[0] ));
+                    });
+
+                }
+                else if (period == "month"){
+                    $('.financialValueWeekly').val(1000);
+                    $('.financialValueDaily').val(100000);
+                    var priceSlider = document.getElementById('nouislider-slider-cash-range');
+                    priceSlider.noUiSlider.destroy();
+
+                    noUiSlider.create(priceSlider, {
+                        start: [1000, 100000],
+                        connect: true,
+                        range: {
+                            'min': 1000,
+                            'max': 100000
+                        },
+                        direction: 'rtl',
+                        step: 100,
+                        connect: true,
+                        behaviour: 'tap-drag',
+                        tooltips: false,
+
+                        // Show a scale with the slider
+
+                    });
+
+                    priceSlider.noUiSlider.on('change', function( values, handle ) {
+                        let priceSilderValue = priceSlider.noUiSlider.get();
+                        let value = priceSilderValue.toString().split(",");
+                        $('#priceFrom').val(Math.trunc( value[1] ));
+                        $('#priceTo').val(Math.trunc( value[0] ));
+                        if(component.price_from != Math.trunc( value[0] )){
+                            component.price_from = Math.trunc( value[0] );
+                        }
+
+                        if(component.price_to != Math.trunc( value[1] )){
+                            component.price_to = Math.trunc( value[1] );
+                        }
+                    });
+
+                    priceSlider.noUiSlider.on('update', function( values, handle ) {
+                        let priceSilderValue = priceSlider.noUiSlider.get();
+                        let value = priceSilderValue.toString().split(",");
+                        $('#priceFrom').val(Math.trunc( value[1] ));
+                        $('#priceTo').val(Math.trunc( value[0] ));
+                    });
+                }
+
             },
         },
    }

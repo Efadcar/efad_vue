@@ -28,19 +28,19 @@
                 <div class="col-lg-12" v-if="car.car_in_stock == 1 && car.car_status == 1">
                     <span class="dot11" style="background-color: rgb(61,145,16)"></span>
                     <div class="btn-reserve btn-reserve1"> 
-                        <router-link :to="'/booking/new/'+ car.car_uid" class="btn btn-default">احجز الآن</router-link>
+                        <router-link :to="'/booking/new/'+ car.car_uid" class="btn btn-default reserveBtnCustom">احجز الآن</router-link>
                     </div>
                 </div>
                 <div class="col-lg-12" v-if="car.car_in_stock == 0">
                     <span class="dot11" style="background-color: rgb(132, 132, 132)"></span>
                     <div class="btn-reserve btn-reserve1"> 
-                        <a href="#" class="btn btn-default">احجز الآن</a>
+                        <a href="#" class="btn btn-default reserveBtnCustom">احجز الآن</a>
                     </div>
                 </div>
                 <div class="col-lg-12" v-if="car.car_in_stock == 1 && car.car_status == 0">
                     <span class="dot11" style="background-color: rgb(230,1,1)"></span>
                     <div class="btn-reserve btn-reserve1"> 
-                        <a href="#" class="btn btn-default">احجز الآن</a>
+                        <a href="#" class="btn btn-default reserveBtnCustom">احجز الآن</a>
                     </div>
                 </div>
             </div>
@@ -109,4 +109,17 @@
 </script>
 
 <style>
+    .reserveBtnCustom{
+        border: 1px solid #33b0f8 !important;
+        color: #01355d !important;
+        background-color: white !important;
+    }
+
+    .reserveBtnCustom:hover{
+        border: 1px solid #01355d !important;
+        color: white !important;
+        background-color: #01355d !important;
+    }
+
+
 </style>

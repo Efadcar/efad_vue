@@ -651,7 +651,6 @@ opacity:0
 
 .duration::before {
 	content: '';
-	margin-right: 2px;
 }
 
 .value {

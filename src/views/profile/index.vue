@@ -157,7 +157,7 @@
                                 <p class="total-amount" style="color: #01355d;">{{bookIndex.inovice.invoice_total_fees_after_tax }} ر.س.</p>
                             </div>
                             <router-link :to="'/booking/new/'+bookIndex.car_uid+'?start='+bookIndex.book_end_date+'&book_uid='+bookIndex.book_uid">
-                                <button style="width: 81%;border-radius: 9px;color: #fff;background-color: #01355d;border-color: #01355d;" class="btn-primary participation-desc-renew" :data-bookuid="bookIndex.book_uid">تجديد الاشتراك</button>
+                                <button style="width: 81%;border-radius: 9px;color: #fff;background-color: #01355d;border-color: #01355d;" class="btn-primary participation-desc-renew" :data-bookuid="bookIndex.book_uid">تجديد الحجز</button>
                             </router-link>
                         </div>
                     </div>

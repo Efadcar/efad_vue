@@ -13,14 +13,16 @@
             <div v-if="results.num_rows > 15" class="col-lg-12">
                 <ul class="pagin">
                     <input type="hidden" name="pag_end" id="pag_end">
-                    <li v-on:click="nextPage()"><i class="fas fa-chevron-right float-left"><a href="#"></a></i></li>
+                    <li v-on:click="prePage()"><i class="fas fa-chevron-right float-left"><a href="#"></a></i></li>
                     <div class="text-center paginationDrawResponse">
-                        <li v-on:click="changePage(page)" v-for="page in buildArray(Math.ceil(results.num_rows / 15))" class="items updateSearchContent" :value="page" :class="{ 'active': page == offset }">
-                            <a href="#">{{ page + 1 }}</a>
-                        </li>
+                        <router-link :to="'?offset=' + page" v-for="page in buildArray(Math.ceil(results.num_rows / 15))">
+                            <li v-on:click="changePage(page)" class="items updateSearchContent" :value="page" :class="{ 'active': page == offset }">
+                                {{ page + 1 }}
+                            </li>
+                        </router-link>
                     </div>
                     <input type="hidden" class="paginationValue" value="0">
-                    <li v-on:click="prePage()"><i class="fas fa-chevron-left float-right"><a href="#"></a></i></li>
+                    <li v-on:click="nextPage()"><i class="fas fa-chevron-left float-right"><a href="#"></a></i></li>
                 </ul>
             </div>
         </div>
@@ -106,6 +108,7 @@
                     };
 
                     this.$bus.$emit('filter_changed', data);
+                    this.$router.push({ path: '/', query: { offset: data.value }});
                 }
             },
             nextPage: function(){
@@ -116,6 +119,7 @@
                     };
 
                     this.$bus.$emit('filter_changed', data);
+                    this.$router.push({ path: '/', query: { offset: data.value }});
                 }
             }
         },
@@ -123,4 +127,8 @@
 </script>
 
 <style>
+    .paginationDrawResponse{
+        display: flex !important;
+        justify-content: center !important;
+    }
 </style>
