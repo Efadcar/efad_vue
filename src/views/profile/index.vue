@@ -9,7 +9,7 @@
                         <div class="arrow-down justify-content-between tab1"></div>
                     </li>
                     <li class="secondLiTabNavRespo">
-                        <a href="#tab2" align="center" class="profileTabs stProfile p-4 "><i class="fas fa-car" style="font-size:36px;color:#01355d;padding-bottom: 5px;"></i><br>الاشتراكات</a>
+                        <a href="#tab2" align="center" class="profileTabs stProfile p-4 "><i class="fas fa-car" style="font-size:36px;color:#01355d;padding-bottom: 5px;"></i><br>الحجوزات</a>
                         <div class="arrow-down justify-content-between tab2"></div>
                     </li>
                     <li class="thirdLiTabNavRespo">
@@ -58,11 +58,11 @@
                                 <input type="text" class="form-control customEnable" id="email" name="member_email" placeholder="ادخل البريد الإلكتروني" :value="auth.member_email">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="">الرقم السري</label>
+                                <label for="password" class="">كلمة المرور</label>
                                 <input type="password" class="form-control customEnable" name="member_password" id="password" placeholder="********">
                             </div>
                             <div class="form-group">
-                                <label for="password_confirmation" class="">إعادة إدخال الرقم السري</label>
+                                <label for="password_confirmation" class="">إعادة كتابة كلمة المرور</label>
                                 <input type="password" class="form-control customEnable" name="password_confirmation" id="password_confirmation" placeholder="********">
                             </div>
                             <div class="form-group">
@@ -80,24 +80,31 @@
                             <img :src="bookIndex.car_obj.car_image" class="img-fluid">
                         </div>
                         <div class="col-md-4">
+                            <p><span class="desc">رقم الحجز: </span>{{ bookIndex.book_uid }}</p>
                             <p><span class="desc">نوع السيارة: </span>{{ bookIndex.car_obj.car_brand_name }} {{ bookIndex.car_obj.car_model_name }} {{ bookIndex.car_obj.car_model_year }}</p>
-                            <p><span class="desc">تاريخ بداية الاشتراك: </span>{{bookIndex.book_start_date}}</p>
-                            <p><span class="desc">تاريخ نهاية الاشتراك: </span>{{bookIndex.book_end_date }}</p>
-                            <p><span class="desc">مدينة الاستلام: </span>{{ fotmatCityDelivery(bookIndex.delivery_city_uid) }}</p>
-                            <p class="color-dots" v-if="bookIndex.book_status == 1">
-                                <span class="desc">حالة الاشتراك: </span> 
-                                <span style="margin-top: 6px;margin-right: 4px;" class="dot1"></span>
-                                <span style="margin-right: 19px;">نشط</span>
-                            </p>
-                            <p class="color-dots" v-if="bookIndex.book_status == 2">
-                                <span class="desc">حالة الاشتراك: </span> 
-                                <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
-                                <span style="margin-right: 19px;">منتهي</span>
-                            </p>
-                            <p class="color-dots" v-if="bookIndex.book_status == 3">
-                                <span class="desc">حالة الاشتراك: </span> 
+                            <p><span class="desc">تاريخ بداية الحجز: </span>{{bookIndex.book_start_date}}</p>
+                            <p><span class="desc">تاريخ نهاية الحجز: </span>{{bookIndex.book_end_date }}</p>
+                            <p><span class="desc">مدينة استلام السيارة: </span>{{ fotmatCityDelivery(bookIndex.delivery_city_uid) }}</p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 0">
+                                <span class="desc">حالة الحجز: </span> 
                                 <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
                                 <span style="margin-right: 19px;">ملغي</span>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 1">
+                                <span class="desc">حالة الحجز: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot1"></span>
+                                <span style="margin-right: 19px;">مؤكد</span>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 2">
+                                <span class="desc">حالة الحجز: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot3"></span>
+                                <span style="margin-right: 19px;">انتظار تأكيد الحجز </span>
+                                <p v-if="bookIndex.book_status == 2" style="color: #ca2121;">( يتم تأكيد الحجز بشكل نهائي بعد سداد قيمة الحجز وسيتم إلغاء الحجز تلقائياً في حال لم يتم دفع. للمساعدة، يرجى التواصل مع فريق إيفاد للعناية بالعملاء من خلال المحادثة المباشرة أو على الواتس آب على الرقم:  078  208 555 966 + )</p>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 3">
+                                <span class="desc">حالة الحجز: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
+                                <span style="margin-right: 19px;">منتهي</span>
                             </p>
                         </div>
                         <div class="col-md-4">
@@ -105,9 +112,9 @@
                                 <h5>المبلغ الإجمالي</h5>
                                 <p class="total-amount" style="color: #01355d;">{{bookIndex.inovice.invoice_total_fees_after_tax }} ر.س.</p>
                             </div>
-                            <button class="btn-primary participation-cancel" :data-bookuid="bookIndex.book_uid">إلغاء الاشتراك</button>
+                            <button class="btn-primary participation-cancel" :data-bookuid="bookIndex.book_uid">إلغاء الحجز</button>
                             <router-link :to="'/bookings/'+bookIndex.book_uid+'?total='+bookIndex.inovice.invoice_total_fees_after_tax">
-                                <button class="btn-primary participation-desc" :data-bookuid="bookIndex.book_uid">تفاصيل الاشتراك</button>
+                                <button class="btn-primary participation-desc" :data-bookuid="bookIndex.book_uid">تفاصيل الحجز</button>
                             </router-link>
                         </div>
                     </div>
@@ -117,7 +124,8 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
                             <router-link to="/" style="color: white;">
-                                <div style="text-align: center;background-color: #01355d;color: white;padding: 12px;border-radius: 13px;">لا توجد حجوزات سابقة. للحجز من هنا
+                                <p style="text-align: center;font-size: large;color: #01355d;">لا توجد بيانات</p>
+                                <div class="efadCustomBtn" style="text-align: center;padding: 12px;border-radius: 13px;">للحجز اضغط هنا
                                 </div>
                             </router-link>
                         </div>
@@ -131,24 +139,31 @@
                             <img :src="bookIndex.car_obj.car_image" class="img-fluid">
                         </div>
                         <div class="col-md-4">
+                            <p><span class="desc">رقم الحجز: </span>{{ bookIndex.book_uid }}</p>
                             <p><span class="desc">نوع السيارة: </span>{{ bookIndex.car_obj.car_brand_name }} {{ bookIndex.car_obj.car_model_name }} {{ bookIndex.car_obj.car_model_year }}</p>
                             <p><span class="desc">تاريخ الحجز: </span>{{bookIndex.book_start_date}}</p>
-                            <p><span class="desc">تاريخ بداية الاشتراك: </span>{{bookIndex.book_end_date }}</p>
-                            <p><span class="desc">تاريخ نهاية الاشتراك: </span>{{ fotmatCityDelivery(bookIndex.delivery_city_uid) }}</p>
-                            <p class="color-dots" v-if="bookIndex.book_status == 1">
-                                <span class="desc">حالة الاشتراك: </span> 
-                                <span style="margin-top: 6px;margin-right: 4px;" class="dot1"></span>
-                                <span style="margin-right: 19px;">نشط</span>
-                            </p>
-                            <p class="color-dots" v-if="bookIndex.book_status == 2">
-                                <span class="desc">حالة الاشتراك: </span> 
-                                <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
-                                <span style="margin-right: 19px;">منتهي</span>
-                            </p>
-                            <p class="color-dots" v-if="bookIndex.book_status == 3">
-                                <span class="desc">حالة الاشتراك: </span> 
+                            <p><span class="desc">تاريخ بداية الحجز: </span>{{bookIndex.book_end_date }}</p>
+                            <p><span class="desc">تاريخ نهاية الحجز: </span>{{ fotmatCityDelivery(bookIndex.delivery_city_uid) }}</p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 0">
+                                <span class="desc">حالة الحجز: </span> 
                                 <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
                                 <span style="margin-right: 19px;">ملغي</span>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 1">
+                                <span class="desc">حالة الحجز: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot1"></span>
+                                <span style="margin-right: 19px;">مؤكد</span>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 2">
+                                <span class="desc">حالة الحجز: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot3"></span>
+                                <span style="margin-right: 19px;">انتظار تأكيد الحجز </span>
+                                <p v-if="bookIndex.book_status == 2" style="color: #ca2121;">( يتم تأكيد الحجز بشكل نهائي بعد سداد قيمة الحجز وسيتم إلغاء الحجز تلقائياً في حال لم يتم دفع. للمساعدة، يرجى التواصل مع فريق إيفاد للعناية بالعملاء من خلال المحادثة المباشرة أو على الواتس آب على الرقم:  078  208 555 966 + )</p>
+                            </p>
+                            <p class="color-dots" v-if="bookIndex.book_status == 3">
+                                <span class="desc">حالة الحجز: </span> 
+                                <span style="margin-top: 6px;margin-right: 4px;" class="dot4"></span>
+                                <span style="margin-right: 19px;">منتهي</span>
                             </p>
                         </div>
                         <div class="col-md-4">
@@ -156,7 +171,7 @@
                                 <h5>المبلغ الإجمالي</h5>
                                 <p class="total-amount" style="color: #01355d;">{{bookIndex.inovice.invoice_total_fees_after_tax }} ر.س.</p>
                             </div>
-                            <router-link :to="'/booking/new/'+bookIndex.car_uid+'?start='+bookIndex.book_end_date+'&book_uid='+bookIndex.book_uid">
+                            <router-link :to="'/booking/new/'+bookIndex.car_uid+'?start='+bookIndex.book_end_date+'&book_uid='+bookIndex.book_uid+'&city_uid='+bookIndex.delivery_city_uid">
                                 <button style="width: 81%;border-radius: 9px;color: #fff;background-color: #01355d;border-color: #01355d;" class="btn-primary participation-desc-renew" :data-bookuid="bookIndex.book_uid">تجديد الحجز</button>
                             </router-link>
                         </div>
@@ -167,7 +182,8 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
                             <router-link to="/" style="color: white;">
-                                <div style="text-align: center;background-color: #01355d;color: white;padding: 12px;border-radius: 13px;">لا توجد حجوزات سابقة. للحجز من هنا
+                                <p style="text-align: center;font-size: large;color: #01355d;">لا توجد بيانات</p>
+                                <div class="efadCustomBtn" style="text-align: center;padding: 12px;border-radius: 13px;">للحجز اضغط هنا
                                 </div>
                             </router-link>
                         </div>
@@ -313,6 +329,9 @@
                             toastr.error(data.responseJSON.message, 'خطأ');
                         },
                     });
+                    $('.customEnable').prop('disabled', true);
+                    $(this).hide();
+                    $('.buttonCustom').show();
                 });
 
                 $('.clickPTab1').click(function(){

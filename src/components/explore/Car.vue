@@ -2,7 +2,7 @@
     <div class="carListItemResponse col-sm-12 col-md-6 col-lg-4 col-12 mix  superior blueplan كيا green y2018" data-size="69">
         <div class="thumbnail-container">
             <div class="car-img">
-                <img :src="car.image" class="img-fluid">
+                <img :src="car.image" class="img-fluid" style="margin-top: 0px !important;">
             </div>
             <div class="car-price d-flex">
                 <div class="price-car mr-auto" style="margin-top: 10px;">

@@ -18,7 +18,7 @@
                                 </div>
                                 <div class=" align-items-center mt-10 custom-margin-map">
                                     <div class="text-left ">
-                                        <span id="daily-rate" class="value">{{result.car_daily_price}}</span>
+                                        <span id="daily-rate" class="value" style="float: right;margin-top: -22px;">{{result.car_daily_price}}</span>
                                         <span class="duration">ريال في اليوم</span>
                                     </div>
                                     <br><br>
@@ -139,7 +139,7 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label>اختر تاريخ أستلام السيارة</label>
+                                                    <label>اختر تاريخ استلام السيارة</label>
                                                     <input type="text" id="date-start" class="form-control floating-label" placeholder="اختر تاريخ أستلام السيارة" name="book_start_date" required>
                                                     <!--<small class="form-text" style="color: #A62F31">يمكنك الحصول علي خصم <?= EARLY_BOOKING_DISCOUNT ?>% إضافي علي اول أسبوع في حالة أختيار تاريخ أستلام السيارة بعد <?= EARLY_BOOKING_AFTER ?>  يوم من تاريخ الحجز</small> -->
                                                 </div>
@@ -184,7 +184,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <h3 class="mb-0 pr-2">عدد أيام الاشترك</h3>
+                                    <h3 class="mb-0 pr-2">عدد أيام الإيجار</h3>
                                     <span class="value total-days">0</span>
                                 </div>
                             </div>
@@ -193,11 +193,11 @@
                             <div class="row">
                                 <div class="col-sm-4 ">
                                     <div class="form-group custom-rec-city-web">
-                                        <label>اختر مدينة أستلام السيارة</label>
+                                        <label>اختر مدينة استلام السيارة</label>
                                         <div class="select-wrapper">
 
                                             <select id="inputStatebook" class="form-control width100p inputStatebookWeb" name="delivery_city_uid" required>
-                                                <option value="0">أختار مدينة</option>
+                                                <option value="0">اختر المدينة</option>
 
 
                                                 <option value="4">الدمام</option>
@@ -221,7 +221,7 @@
                                 </div>
                                 <div class="col-sm-4 text-center ">
                                     <h3 class="mb-0 pr-2">المبلغ الإجمالي</h3>
-                                    <span class="value total-price">0</span> <span id="currency">ريال</span>
+                                    <span class="value total-price-value">0</span> <span id="currency">ريال</span>
                                 </div>
                             </div>
 
@@ -230,7 +230,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12 text-center ">
-                                    <button class="btn btn-default  mb-2" id="paynow" >استمرار</button>
+                                    <button class="btn btn-default efadCustomBtn mb-2" id="paynow" style="width: 30%;padding: 10px;margin-top: 15px;">استمرار</button>
                                 </div>
                             </div>
                         </form>
@@ -382,7 +382,7 @@
             <section rol="form-reservation">
                 <div class="container  mb-2 pb-4">
                     <div class="row">
-                        <div class="col-12"> <a href="#" class="btn cutom-btn active"> تفاصيل الاشتراك</a> <!--<a href="#" class="btn btn-default cutom-btn">الحجز المجانى</a> --> </div>
+                        <div class="col-12"> <a href="#" class="btn cutom-btn active"> تفاصيل الحجز</a> <!--<a href="#" class="btn btn-default cutom-btn">الحجز المجانى</a> --> </div>
                     </div>
                     <div class="reservation-form  bg-secondary">
                         <div class="row d-flex align-items-center ">
@@ -413,7 +413,7 @@
                                 <ul class="cartype">
 
                                     <li style="width: 24%">
-                                        <div class="cartype-logo"> مدة الاشتراك </div>
+                                        <div class="cartype-logo"> مدة الحجز </div>
                                         <span >{{bookingResult.days}} ايام</span>
                                     </li>
                                     <li style="width: 24%">
@@ -467,8 +467,8 @@
                             <!-- personal info -->
                             <div class="row pt-1">
                                 <div class="col-sm-6">
-                                    <h3>أختر طريقة الدفع</h3>
-                                    <p style="font-size: 12px; color:#01355d;margin-top: -20px;">*جميع العضويات والاشتراكات لا تعتمد إلا بعد دفع المبالغ</p>
+                                    <h3>اختر طريقة الدفع</h3>
+                                    <p style="font-size: 12px; color:#01355d;margin-top: -20px;">*جميع الحجوزات تعتبر غير معتمدة إلا بعد دفع مبلغ الحجوزات</p>
                                 </div>
                                 <div class="col-sm-6">
                                     <h3>تفاصيل الفاتورة</h3>
@@ -529,13 +529,13 @@
                                                     </tr>
                                                     -->
                                                     <tr>
-                                                        <td class="text-left">سعر الاشتراك
+                                                        <td class="text-left">سعر الحجز
                                                         </td>
                                                         <td class="text-right"><span>{{bookingResult.total_fees}}</span> ر.س.</td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td class="text-left">ضريبة القيمه المضافة 5% للخدمة
+                                                        <td class="text-left">ضريبة القيمة المضافة 5% للحجز
                                                         </td>
                                                         <td class="text-right"><span id="tax-total-perc"></span> ر.س.</td>
                                                     </tr>
@@ -568,10 +568,10 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center mt-4 ">
-                                        <p class="" style="color: #000">بالضغط على " تأكيد الحجز " أنت توافق على <router-link to="/terms-of-use"target="_blank" style="text-decoration: underline; color: #01355d">شروط الاستخدام </router-link> و <router-link to="/privacy-policy" target="_blank" style="text-decoration: underline; color: #01355d">سياسة الخصوصية</router-link></p>
+                                        <p class="" style="color: #000">بالضغط على " تأكيد الحجز " أنت توافق على <router-link to="/terms-of-use" target="_blank" style="text-decoration: underline; color: #01355d">شروط الاستخدام </router-link> و <router-link to="/privacy-policy" target="_blank" style="text-decoration: underline; color: #01355d">سياسة الخصوصية</router-link></p>
                                     </div>
                                     <div class="col-sm-12 text-center ">
-                                        <button class="btn btn-default pl-4 pr-4 mb-2 mt-4 booking_confirmation" id="paynow">تأكيد الحجز</button>
+                                        <button style="width: 30%;padding: 10px;margin-top: 15px;" class="btn btn-default pl-4 pr-4 mb-2 mt-4 booking_confirmation efadCustomBtn" id="paynow">تأكيد الحجز</button>
                                     </div>
                                 </div>
 
@@ -610,6 +610,7 @@
                 bookingResult: {},
                 urlStartDateCalendar: this.$route.query.start,
                 urlBookUIDP: this.$route.query.book_uid,
+                urlCityUID: this.$route.query.city_uid,
                 isHidden: false
            };
        },
@@ -619,6 +620,12 @@
             let component = this;
             document.title = 'افاد | احجز الان';
             $(document).ready(function(){
+                if (component.urlCityUID){
+                    $('.inputStatebookWeb').val(component.urlCityUID);
+                    $('.inputStatebookMob').val(component.urlCityUID);
+                    $('.inputStatebookWeb').prop('disabled', 'disabled');
+                    $('.inputStatebookMob').prop('disabled', 'disabled');
+                }
                 window.scrollTo(0, 0);
                 function run_waitMe(el, num, effect){
                     let text = 'الرجاء الانتظار...';
@@ -874,6 +881,8 @@
 
                         $('#tax-total-perc').html(component.bookingResult.total_fees * (5 / 100));
 
+                        $('.total-price-value').html(component.bookingResult.total_fees);
+
                         $('.total-price').html(component.bookingResult.total_fees + component.bookingResult.total_fees * (5 / 100));
 
                         // component.delivery_city_uid = inputStatebookWeb;
@@ -887,7 +896,7 @@
                             //document.getElementById('confirm-booking').submit();
                             if (!localStorage.auth){
                                 $('#top-login-button').trigger('click');
-                                toastr.error('من فضلك سجل الدخول اولا لاستمرار عملية الحجز', 'خطأ');
+                                // toastr.error('من فضلك سجل الدخول اولا لاستمرار عملية الحجز', 'خطأ');
                             }
                             else{
                                 $('.new-booking-section').hide();
@@ -937,7 +946,7 @@
                                 count++;
                             }
                         }
-
+                        count--;
                         date_start = new Date(date_start.setDate(date_start.getDate() + count));
 
                         date_start.setDate(date_start.getDate());
@@ -989,7 +998,7 @@
                             }
                             else{
                                 var newDate = new Date(datee);
-                                newDate.setDate(newDate.getDate() + 7);
+                                newDate.setDate(newDate.getDate() + 6);
                             }
 
                             $('#date-start').bootstrapMaterialDatePicker().val(datee);
@@ -1020,7 +1029,7 @@
                             }
                             else{
                                 var newDate = new Date(datee);
-                                newDate.setDate(newDate.getDate() + 7);
+                                newDate.setDate(newDate.getDate() + 6);
                             }
                             $('#date-end').bootstrapMaterialDatePicker('setMinDate', newDate);
                             $.ajax({
@@ -1035,7 +1044,7 @@
                                     component.bookingResult = data.result;
 
                                     $('.total-days').html(component.bookingResult.days);
-                                    $('.total-price').html(component.bookingResult.total_fees);
+                                    $('.total-price-value').html(component.bookingResult.total_fees);
 
                                 },
                                 error: function(data){

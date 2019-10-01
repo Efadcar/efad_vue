@@ -52,7 +52,7 @@
             let component = this;
 
             $(document).ready(function(){
-                document.title = 'إفاد | عن إفاد';
+                document.title = 'إفاد | عن إيفاد';
                 
                 $.ajax({
                     type: 'GET',

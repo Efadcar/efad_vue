@@ -5,7 +5,7 @@
                 <div class="row align-items-center ">
                     <div class="col-lg-5 col-sm-7 col-xs-12 pr-10 customRespo">
                         <ul class="footermenu pb-8">
-                            <li><router-link to="/about">عن إفاد</router-link></li>
+                            <li><router-link to="/about">عن إيفاد</router-link></li>
                             <li><a href="https://www.linkedin.com/company/efadsa/jobs/" target="_blank">الوظائف</a></li>
                             <li><router-link to="/branches">الفروع</router-link></li>
                             <li><router-link to="/faqs">الأسئلة المتكررة</router-link></li>
@@ -45,7 +45,7 @@
                         <a href="/"><img src="/assets/rtl/images/app-store%20(2).png" class="mob-as mb-2" style="width: 140px;height: 42px;"></a>
                     </div>
                     <div class="col-lg-3 col-sm-5 col-xs-12 text-right custom-align logo-footer">
-                        <a href="/"><img src="/assets/rtl/images/last-logo.png" alt="Efad" class="footerlogo"/></a>
+                        <a href="/"><img src="/assets/rtl/images/efad-logo.png" alt="Efad" class="footerlogo"/></a>
                         <div class="footer-social d-flex  pt-3 pb-3 ">
                             <p>
                                 <a href="mailto:wecare@efadcar.com"><i class="fas fa-envelope"></i></a>

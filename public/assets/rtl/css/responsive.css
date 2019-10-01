@@ -158,7 +158,7 @@
 
 
 	.custom-margin-car-slider{
-		margin: 10% !important;
+		margin: 0px 10% !important;
 	}
 
 	.cd-faq-items {
@@ -307,7 +307,7 @@
 	}
 
 	.custom-margin-car-slider{
-		margin: 10% !important;
+		margin: 0px 10% !important;
 	}
 
 	.cd-faq-items {
@@ -621,7 +621,7 @@
 	}
 
 	.custom-margin-car-slider{
-		margin: 10% !important;
+		margin: 0px 10% !important;
 	}
 
 	.cd-faq-items {
@@ -677,9 +677,17 @@
 
 	.show>.dropdown-menu {
         left: 71% !important;
-    	margin-top: 48px !important;
+    	margin-top: 57px !important;
     	width: 55% !important;
     }
+
+    .dropdown-menu-arrow {
+	    top: -25px;
+	    left: -13% !important;
+	    width: 0;
+	    height: 0;
+	    position: relative;
+	}
 
     .dropdown-item{
     	margin: 0px !important;
@@ -881,10 +889,6 @@
 		margin-left: 10px !important;
 	}
 
-	.fa-user-circle{
-		margin-right: 100px !important;
-	}
-
 }
 
 
@@ -1002,7 +1006,7 @@
 	}
 
 	.custom-margin-car-slider{
-		margin: 10% !important;
+		margin: 0px 10% !important;
 	}
 
 	.cd-faq-items {

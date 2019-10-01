@@ -35,12 +35,12 @@ const routerOptions = [
 		},
 	},
 	{
-		path: process.env.VUE_APP_PUBLIC_PATH+'/booking/pay',
-		component: 'booking/pay',
-		name: 'payBooking',
+		path: process.env.VUE_APP_PUBLIC_PATH+'/booking/pay/:id',
+		component: 'booking/new',
+		name: 'newBooking',
 		meta: {
 			layout: 'app-layout',
-			activeNav: 'payBooking',
+			activeNav: 'newBooking',
 			activeSubNav: '',
 			requiresAuth: true,
 		},
