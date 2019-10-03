@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top sb-navbar nav-new">
         <div class="container-fluid">
             <router-link to="/" class="navbar-brand">
-                <img class="logo" src="/assets/rtl/images/efad-logo.png" alt="Efad Logo" />
+                <img class="logo" src="/assets/rtl/images/new-logo.png" alt="Efad Logo" />
             </router-link>
             <div class="collapse navbar-collapse" id="mainMenu">
                 <div class="navbar-buttons mbr-section-btn ml-auto loginAuthMenu" v-show="isAuthenticated()"> 
@@ -87,9 +87,9 @@
                 </div>
                 <div class="navbar-buttons  mbr-section-btn nonAuthMenu" v-show="!isAuthenticated()"> 
                     <a id="top-login-button2" href="#login_form_ajax" class="mr-2 login-link" style="width: 100%;font-size: 12px;float: right;">
-                    تسجيل دخول
+                    <i class="fa fa-user-circle"></i>
                     </a>
-                    <!-- <a href="#login_form_ajax" class="btn btn--accent register-popup" style="width: 50%;font-size: 9px;margin-top: 29px;margin-right: 67px;">
+                    <!-- <a href="#login_form_ajax" class="btn btn--accent register-popup" style="width: 50%;font-size: 9px;margin-top: 29px;">
                         <span>تسجيل حساب جديد</span>
                     </a>  -->
                 </div>
@@ -185,8 +185,5 @@
                 }
             }
         },
-    }
+    };
 </script>
-
-<style>
-</style>

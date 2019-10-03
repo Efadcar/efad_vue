@@ -300,6 +300,3 @@
         },
     }
 </script>
-
-<style>
-</style>

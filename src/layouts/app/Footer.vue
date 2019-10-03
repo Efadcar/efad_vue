@@ -28,7 +28,7 @@
                             <li><router-link to="/terms-of-use">شروط الاستخدام</router-link></li>
                             <li><router-link to="/privacy-policy">سياسة الخصوصية</router-link></li>
                             <li>
-                                <p class="pr-1"> إفاد © 2019 </p>
+                                <p class="pr-1"> إيفاد © 2019 </p>
                             </li>
                         </ul>
                     </div>
@@ -45,7 +45,7 @@
                         <a href="/"><img src="/assets/rtl/images/app-store%20(2).png" class="mob-as mb-2" style="width: 140px;height: 42px;"></a>
                     </div>
                     <div class="col-lg-3 col-sm-5 col-xs-12 text-right custom-align logo-footer">
-                        <a href="/"><img src="/assets/rtl/images/efad-logo.png" alt="Efad" class="footerlogo"/></a>
+                        <a href="/"><img src="/assets/rtl/images/new-logo.png" alt="Efad" class="footerlogo"/></a>
                         <div class="footer-social d-flex  pt-3 pb-3 ">
                             <p>
                                 <a href="mailto:wecare@efadcar.com"><i class="fas fa-envelope"></i></a>
@@ -60,7 +60,7 @@
                             <li><router-link to="/terms-of-use">شروط الاستخدام</router-link></li>
                             <li><router-link to="/privacy-policy">سياسة الخصوصية</router-link></li>
                             <li>
-                                <p class="pr-1"> إفاد © 2019 </p>
+                                <p class="pr-1"> إيفاد © 2019 </p>
                             </li>
                         </ul>
                     </div>

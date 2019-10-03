@@ -100,11 +100,6 @@
                         <div class="col-sm-6">
                             <h3>أختر طريقة الدفع</h3>
                             <p style="font-size: 12px; color:#01355d;margin-top: -20px;">*جميع العضويات والاشتراكات لا تعتمد إلا بعد دفع المبالغ</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <h3>تفاصيل الفاتورة</h3>
-                        </div>
-                        <div class="col-sm-6">
                             <!-- 
                             <div class="custom-control custom-radio col-sm-12 ml-4">
                                 <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="visa" checked>
@@ -145,6 +140,8 @@
                         </div>
                         
                         <div class="col-sm-6">
+                            <h3>تفاصيل الفاتورة</h3>
+							<p></p>
                             <div class=" col-md-12  col-sm-12 mx-sm-auto ">
                                 <div class="row">
 
@@ -185,9 +182,7 @@
                                         
                                         <tfoot>
                                             <tr>
-                                                <td class="text-left ">
-                                                    <h3>المبلغ الإجمالي </h3>
-                                                </td>
+                                                <td class="text-left "><h3>المبلغ الإجمالي</h3></td>
                                                 <td class="text-right">
                                                     <h4><span class="total-price">2100 </span> ر.س.</h4>
                                                 </td>

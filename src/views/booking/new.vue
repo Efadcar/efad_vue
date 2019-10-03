@@ -469,11 +469,6 @@
                                 <div class="col-sm-6">
                                     <h3>اختر طريقة الدفع</h3>
                                     <p style="font-size: 12px; color:#01355d;margin-top: -20px;">*جميع الحجوزات تعتبر غير معتمدة إلا بعد دفع مبلغ الحجوزات</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <h3>تفاصيل الفاتورة</h3>
-                                </div>
-                                <div class="col-sm-6">
                                     <!--
                                     <div class="custom-control custom-radio col-sm-12 ml-4">
                                         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="visa" checked>
@@ -516,6 +511,8 @@
                                 </div>
 
                                 <div class="col-sm-6">
+                                    <h3>تفاصيل الفاتورة</h3>
+									<p></p>
                                     <div class=" col-md-12  col-sm-12 mx-sm-auto ">
                                         <div class="row">
 
